@@ -39,7 +39,7 @@
         </div>
         <div class="fixed-bottom text-center mb-6">
 
-       Copyright 2022 Markaz Virtual.
+       Copyright 2023 Devi Marlinda.
 
     </div>
 
