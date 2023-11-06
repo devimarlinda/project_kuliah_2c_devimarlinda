@@ -52,7 +52,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default s
                                             elect example" name="level" required>
-                                                <option selected hidden value="0">Pilih Level User</option>
+                                                <option selected hidden value="">Pilih Level User</option>
                                                 <option value="1">Ownner/Admin</option>
                                                 <option value="2">Kasir</option>
                                                 <option value="3">Pelayan</option>
@@ -74,7 +74,7 @@ while ($record = mysqli_fetch_array($query)) {
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="floatingInput" placeholder="password" disabled value="12345" name="password">
+                                            <input type="password" class="form-control" id="floatingInput" placeholder="password" disabled value="password" name="password">
                                             <label for="floatingPassword">Password</label>
                                         </div>
                                     </div>
@@ -194,7 +194,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
-                                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required value="<?php echo $row['username'] ?>">
+                                                <input <?php echo ($row['username'] == $_SESSION['username_decafe']) ? 'disabled' : ''; ?> type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required value="<?php echo $row['username'] ?>">
                                                 <label for="floatingInput">Username</label>
                                                 <div class="invalid-feedback">
                                                     Masukkan Username.
@@ -254,7 +254,7 @@ while ($record = mysqli_fetch_array($query)) {
                     <div class="modal-dialog modal-md modal-fullscreen-md-down">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Data User</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data User</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -263,7 +263,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="col-lg-12">
                                         <?php
                                         if ($row['username'] == $_SESSION['username_decafe']) {
-                                            echo "<div class='alert alert-dangar'> Anda tidak dapat menghaous akun sendiri </div>";
+                                            echo "<div class='alert alert-dangar'> Anda tidak dapat menghapus akun sendiri </div>";
                                         } else {
                                             echo "Apakah Anda Yakin Ingin Menghapus User <b>$row[username]</b>";
                                         }
@@ -282,6 +282,41 @@ while ($record = mysqli_fetch_array($query)) {
                 </div>
 
                 <!-- end modal Delect -->
+
+                <!-- modal reset password -->
+                <div class="modal fade" id="ModalResetPassword<?php echo $row['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md modal-fullscreen-md-down">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Reset Password </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="needs-validation" novalidate action="proses/proses_reset_password.php" method="POST">
+                                    <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                                    <div class="col-lg-12">
+                                        <?php
+                                        if ($row['username'] == $_SESSION['username_decafe']) {
+                                            echo "<div class='alert alert-dangar'> Anda tidak dapat mereset password </div>";
+                                        } else {
+                                            echo "Apakah Anda Yakin Ingin mereset password user <b>$row[username]</b> 
+                                            menjadi password bawaan sistem yang yaitu <b>password</b>";
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success" name="input_user_validate" value="12345" <?php echo ($row['username'] == $_SESSION['username_decafe']) ?
+                                                                                                                                    'disabled' : ''; ?>>Reset Password</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end modal reset password  -->
 
 
             <?php
@@ -328,7 +363,8 @@ while ($record = mysqli_fetch_array($query)) {
                                     <td class="d-flex">
                                         <button class="btn btn-info btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView<?php echo $row['id'] ?>"><i class="bi bi-eye"></i></button>
                                         <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id'] ?>"><i class="bi bi-pencil"></i></button>
-                                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete<?php echo $row['id'] ?>"><i class="bi bi-trash"></i></button>
+                                        <button class="btn btn-danger btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalDelete<?php echo $row['id'] ?>"><i class="bi bi-trash"></i></button>
+                                        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#ModalResetPassword<?php echo $row['id'] ?>"><i class="bi bi-key"></i></button>
                                     </td>
                                 </tr>
                             <?php
@@ -343,4 +379,3 @@ while ($record = mysqli_fetch_array($query)) {
         </div>
     </div>
 </div>
-

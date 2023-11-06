@@ -37,7 +37,7 @@
             ?>
             <!-- End Content -->
         </div>
-        <div class="fixed-bottom text-center mb-6">
+        <div class="fixed-bottom text-center bg-light py-2">
 
        Copyright 2023 Devi Marlinda.
 
@@ -47,7 +47,7 @@
      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-    <Script>
+    <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (() => {
         'use strict'
@@ -67,7 +67,7 @@
             }, false)
         })
     })()
-</Script>
+</script>
 </body>
 
 </html>

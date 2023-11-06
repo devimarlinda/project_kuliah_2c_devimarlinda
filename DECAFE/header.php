@@ -28,8 +28,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="needs-validation" novalidate action="proses/proses_ubah_user.php" method="POST">
-                    <input type="hidden" value="<?php echo $row['id'] ?>" name="id">
+                <form class="needs-validation" novalidate action="proses/proses_ubah_password.php" method="POST">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-floating mb-3">
@@ -77,7 +76,7 @@
                     
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="input_user_validate" value="12345">Save changes</button>
+                        <button type="submit" class="btn btn-primary" name="ubah_password_validate" value="12345">Save changes</button>
                     </div>
                 </form>
             </div>
