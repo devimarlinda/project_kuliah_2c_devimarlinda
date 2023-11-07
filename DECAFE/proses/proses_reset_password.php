@@ -6,13 +6,14 @@
     if(!empty($_POST['input_user_validate'])){
         $query = mysqli_query($conn, "UPDATE tb_user SET password=md5('$password') WHERE id = '$id'");
         if(!$query){
-            $message= '<script>alert ("Password Gagal Direset")</script>';
-            
+            $message= '<script>alert ("Password Gagal Direset")
+            window.location="../user" </script>';
+
         }else{
            
             $message= '<script>alert ("Password Berhasil Direset");
-            window.location="../user" </script>
+            window.location="../user" 
             </script>';
         }
-    }echo $message;
-?> 
+    } echo $message;
+?>
