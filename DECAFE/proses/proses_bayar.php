@@ -10,7 +10,7 @@ $kembalian = $uang - $total;
 
 if (!empty($_POST['bayar_validate'])) {
     if ($kembalian<0) {
-    $message = '<script>alert("NOMINAL UANG TIDAK MENCUKUPI");
+    $message = '<script>alert("NOMINAL UANG YANG DIMAKSUKKAN TIDAK MENCUKUPI");
     window.location="../?x=orderitem&order='.$kode_order.'&meja='.$meja.'&pelanggan='.$pelanggan.'"</script>';
 } else {
         $query = mysqli_query($conn, "INSERT INTO tb_bayar (id_bayar,nominal_uang,total_bayar) values('$kode_order','$uang','$total')");

@@ -5,31 +5,31 @@ while ($row = mysqli_fetch_array($query)) {
     $result[] = $row;
 }
 ?>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div class="col-lg-9 mt-2">
     <!-- corousel -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <?php 
+            <?php
             $slide = 0;
             $firstSlideButton = true;
-                 foreach ($result as $dataTombol){
-            ($firstSlideButton) ? $aktif = "active" : $aktif = "";
-            $firstSlideButton = false;
+            foreach ($result as $dataTombol) {
+                ($firstSlideButton) ? $aktif = "active" : $aktif = "";
+                $firstSlideButton = false;
             ?>
 
-            <button type="button" data-bs-target="#carouselExampleCaptions" 
-            data-bs-slide-to="<?php echo $slide?>" class="<?php echo $aktif?>" aria-current="true" aria-label="<?php echo $slide+1?>"></button>
-           
-        <?php 
-             $slide ++;
-              } ?>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="<?php echo $slide ?>" class="<?php echo $aktif ?>" aria-current="true" aria-label="<?php echo $slide + 1 ?>"></button>
+
+            <?php
+                $slide++;
+            } ?>
         </div>
         <div class="carousel-inner rounded">
             <?php
             $firstSlide = true;
             foreach ($result as $data) {
-             ($firstSlide)  ? $aktif = "active" : $aktif="";
-             $firstSlide = false;
+                ($firstSlide)  ? $aktif = "active" : $aktif = "";
+                $firstSlide = false;
             ?>
                 <div class="carousel-item  <?php echo $aktif ?>">
                     <img src="assets/img/<?php echo $data['foto'] ?> " class="img-fluid" style="height: 250px; width:1000px; object-fit:cover" alt="...">
@@ -51,7 +51,7 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
     <!-- End corousel -->
 
-
+    <!-- judul -->
     <div class="card mt-4 border-0 bg-light">
         <div class="card-body text-center">
             <h5 class="card-title">DECAFE - APLIKASI PEMESANAN MAKANAN DAN MINUMAN DI CAFE DEVI</h5>
@@ -62,3 +62,48 @@ while ($row = mysqli_fetch_array($query)) {
         </div>
     </div>
 </div>
+<!-- akhir judul -->
+
+<!-- Chart -->
+    <div class="card mt-4 border-0 bg-light">
+        <div class="card-body text-center">
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+        <script>
+            const ctx = document.getElementById('myChart');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: 'jumlah porsi yang terjual',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderWidth: 1,
+                        backgroundColor:[
+                            'rgba[245, 39, 102, 0.45]',
+                            'rgba[0, 96, 234, 0.64]',
+                            'rgba[234, 255, 93, 0.64]',
+                            'rgba[0, 202, 27, 0.64]',
+                            'rgba[195, 20, 239, 0.64]',
+                            'rgba[246, 150, 52, 0.64]',
+                            
+
+
+                        ]
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+</div>
+</div>
+<!-- Akhir chart -->

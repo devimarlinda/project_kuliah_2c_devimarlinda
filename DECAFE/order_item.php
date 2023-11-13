@@ -9,9 +9,9 @@ $query = mysqli_query($conn, "SELECT *, SUM(harga*jumlah) AS harganya FROM tb_li
     GROUP BY id_list_order
     HAVING tb_list_order.kode_order = $_GET[order]");
 
-$kode = $_GET['order'];
-$meja = $_GET['meja'];
-$pelanggan = $_GET['pelanggan'];
+    $kode = $_GET['order'];
+    $meja = $_GET['meja'];
+    $pelanggan = $_GET['pelanggan'];
 
 while ($record = mysqli_fetch_array($query)) {
     $result[] = $record;
@@ -206,6 +206,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
                         </div>
                     </div>
                     <!-- End Modal Delete-->
+                    
                 <?php
                 }
                 ?>
