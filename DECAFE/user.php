@@ -142,6 +142,7 @@ while ($record = mysqli_fetch_array($query)) {
                                                         }
                                                     }
                                                     ?>
+                                                    
                                                 </select>
                                                 <label for="floatingInput">Level User</label>
                                                 <div class="invalid-feedback">
@@ -153,7 +154,6 @@ while ($record = mysqli_fetch_array($query)) {
                                             <div class="form-floating mb-3">
                                                 <input disabled type="number" class="form-control" id="floatingInput" placeholder="08XXXXX" name="nohp" value="<?php echo $row['nohp'] ?>">
                                                 <label for="floatingInput">No HP</label>
-
                                             </div>
                                         </div>
                                     </div>
@@ -164,7 +164,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
-                            </div>
+                                 </div>
                             </form>
                         </div>
                     </div>
@@ -307,7 +307,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-success" name="input_user_validate" value="12345" <?php echo ($row['username'] == $_SESSION['username_decafe']) ?
-                                                                                                                                    'disabled' : ''; ?>>Reset Password</button>
+                                        'disabled' : ''; ?>>Reset Password</button>
                                     </div>
                                 </form>
                             </div>
