@@ -242,7 +242,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
                                                         <?php echo $row['nama_menu'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo number_format($row['harga'], 0, ',', '.') ?>
+                                                        <?php echo number_format($row['harga'], 0, ',','.') ?>
                                                     </td>
                                                     <td>
                                                         <?php echo $row['jumlah'] ?>
@@ -254,7 +254,7 @@ $select_menu = mysqli_query($conn, "SELECT id,nama_menu FROM tb_daftar_menu");
                                                         <?php echo $row['catatan'] ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo number_format($row['harganya'], 0, ',', '.') ?>
+                                                        <?php echo number_format($row['harganya'], 0, ',','.') ?>
                                                     </td>
 
                                                 </tr>

@@ -4,9 +4,31 @@ $query = mysqli_query($conn, "SELECT * FROM tb_daftar_menu");
 while ($row = mysqli_fetch_array($query)) {
     $result[] = $row;
 }
+$query_chart = mysqli_query($conn, "SELECT nama_menu, tb_daftar_menu.id, SUM(tb_list_order.jumlah) AS total_jumlah FROM tb_daftar_menu
+LEFT JOIN tb_list_order ON tb_daftar_menu.id = tb_list_order.menu
+GROUP BY tb_daftar_menu.id
+ORDER BY tb_daftar_menu.id ASC");
+
+//$result_chart = array();
+while ($record_chart = mysqli_fetch_array($query_chart)){
+    $result_chart[] = $record_chart;
+}
+
+$array_menu = array_column($result_chart, 'nama_menu');
+$array_menu_qoute = array_map(function($menu){
+    return "'".$menu."'";
+}, $array_menu);
+$string_menu = implode(',', $array_menu_qoute);
+
+
+$array_jumlah_pesanan = array_column($result_chart, 'total_jumlah');
+$string_jumlah_pesanan = implode(',', $array_jumlah_pesanan);
+
 ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <div class="col-lg-9 mt-2">
+
+
     <!-- corousel -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -61,7 +83,7 @@ while ($row = mysqli_fetch_array($query)) {
             <a href="order" class="btn btn-primary">Buat Order</a>
         </div>
     </div>
-</div>
+
 <!-- akhir judul -->
 
 <!-- Chart -->
@@ -76,10 +98,10 @@ while ($row = mysqli_fetch_array($query)) {
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    labels: [<?php echo $string_menu ?>],
                     datasets: [{
                         label: 'jumlah porsi yang terjual',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [<?php echo $string_jumlah_pesanan ?>],
                         borderWidth:1,
                         backgroundColor:[ 
                             'red',
@@ -88,9 +110,7 @@ while ($row = mysqli_fetch_array($query)) {
                             'green',
                             'purple',
                             'orange',
-                            
-
-
+          
                         ]
                     }]
                 },
@@ -106,4 +126,5 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
 </div>
 <!-- Akhir chart -->
+</div>
 </div>
