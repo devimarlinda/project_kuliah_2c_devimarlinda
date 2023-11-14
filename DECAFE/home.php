@@ -80,14 +80,14 @@ while ($row = mysqli_fetch_array($query)) {
                     datasets: [{
                         label: 'jumlah porsi yang terjual',
                         data: [12, 19, 3, 5, 2, 3],
-                        borderWidth: 1,
-                        backgroundColor:[
-                            'rgba[245, 39, 102, 0.45]',
-                            'rgba[0, 96, 234, 0.64]',
-                            'rgba[234, 255, 93, 0.64]',
-                            'rgba[0, 202, 27, 0.64]',
-                            'rgba[195, 20, 239, 0.64]',
-                            'rgba[246, 150, 52, 0.64]',
+                        borderWidth:1,
+                        backgroundColor:[ 
+                            'red',
+                            'blue',
+                            'yellow',
+                            'green',
+                            'purple',
+                            'orange',
                             
 
 
@@ -105,5 +105,5 @@ while ($row = mysqli_fetch_array($query)) {
         </script>
     </div>
 </div>
-</div>
 <!-- Akhir chart -->
+</div>
