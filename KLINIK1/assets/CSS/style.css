@@ -1,0 +1,16 @@
+
+.custom-nav-pills .nav-item .nav-link.active {
+    background-color:rgb(9, 74, 53);
+    color: white;
+    border-radius : 4px;
+}
+
+/* Ganti warna sesuai keinginan Anda */
+.custom-header {
+    background-color: rgb(9, 74, 53);
+}
+
+.custom-header .navbar-brand {
+    color: white;
+}
+

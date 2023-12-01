@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+<nav class="navbar navbar-expand navbar-dark sticky-top custom-header">
         <div class="container-lg">
-            <a class="navbar-brand" href="."><i class="bi bi-house-add"></i> KLINIK</a>
+            <a class="navbar-brand " href="."><i class="bi bi-house-add"></i> KLINIK</a>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
 

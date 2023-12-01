@@ -1,9 +1,5 @@
-<style>
-    .nav-link.active {
-        background-color: green !important;
-        color: light !important;
-    }
-</style>
+
+
 <div class="col-lg-3">
     <nav class="navbar navbar-expand-lg bg-light rounded-3 border mt-2">
         <div class="container-fluid">
@@ -16,7 +12,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav nav-pills flex-column justify-content-end flex-grow-1">
+                <ul class="navbar-nav custom-nav-pills flex-column justify-content-end flex-grow-1 pe-0">
                         <li class="nav-item">
                             <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'dashboard') || !isset($_GET['x'])) ? 'active link-light' :'link-dark'; ?>" aria-current="page" href="dashboard"> <i' class="bi bi-house-door"></i> Dashboard</a>
                         </li>
