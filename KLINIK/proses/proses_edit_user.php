@@ -1,6 +1,6 @@
 <?php
 include "connect.php";
-$id = (isset($_POST['nik'])) ? htmlentities($_POST['nik']) : "" ;
+$nik= (isset($_POST['nik'])) ? htmlentities($_POST['nik']) : "" ;
 $name = (isset($_POST['nama'])) ? htmlentities($_POST['nama']) : "" ;
 $username = (isset($_POST['username'])) ? htmlentities($_POST['username']) : "" ;
 $level = (isset($_POST['level'])) ? htmlentities($_POST['level']) : "" ;
@@ -9,11 +9,6 @@ $alamat = (isset($_POST['alamat'])) ? htmlentities($_POST['alamat']) : "" ;
 $password = md5('password');
 
 if(!empty($_POST['input_user_validate'])){
-    $select = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
-    if (mysqli_num_rows($select) > 0) {
-        $message = '<script>alert("Username yang dimasukkan telah ada")
-        window.location="../user"</script>';
-    } else {
     $query = mysqli_query($conn, "UPDATE tb_user SET nama='$name', username='$username', 
     level='$level', nohp='$nohp', alamat='$alamat' WHERE nik='$nik'");
     if($query){
@@ -22,6 +17,9 @@ if(!empty($_POST['input_user_validate'])){
     }else{
         $message = '<script>alert("Data gagal diupdate")
                     window.location="../user"</script>';
-    }}
+    }
 }echo $message;
 ?>
+
+
+

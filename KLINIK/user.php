@@ -162,7 +162,8 @@ while ($record = mysqli_fetch_array($query)) {
                                         <label for="floatinginput">Alamat</label>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;"data-bs-dismiss="modal">Close</button>
+                                       
                                     </div>
                             </div>
                             </form>
@@ -181,7 +182,7 @@ while ($record = mysqli_fetch_array($query)) {
                             </div>
                             <div class="modal-body">
                                 <form class="needs-validation" novalidate action="proses/proses_edit_user.php" method="POST">
-                                    <input type="hidden" value="<?php echo $row['nik'] ?>" name="id">
+                                    <input type="hidden" value="<?php echo $row['nik'] ?>" name="nik">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
@@ -237,8 +238,8 @@ while ($record = mysqli_fetch_array($query)) {
                                         <label for="floatingInput">Alamat</label>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary" name="input_user_validate" value="12345">Save changes</button>
+                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="input_user_validate" value="12345"> Save </button>
                                     </div>
                                 </form>
                             </div>
@@ -263,20 +264,18 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="col-lg-12">
                                         <?php
                                         if ($row['username'] == $_SESSION['username_klinik']) {
-                                            echo "<div class='alert alert-dangar'> Anda tidak dapat menghapus akun sendiri </div>";
+                                            echo "<div class='alert alert-danger'> Anda tidak dapat menghapus akun sendiri </div>";
                                         } else {
                                             echo "Apakah Anda Yakin Ingin Menghapus User <b>$row[username]</b>";
                                         }
                                         ?>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger" name="input_user_validate" value="12345" <?php echo ($row['username'] == $_SESSION['username_klinik']) ?
-                                                                                                                                    'disabled' : ''; ?>>Hapus</button>
+                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;"  data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;"  value="12345" <?php echo ($row['username'] == $_SESSION['username_klinik']) ? 'disabled' : ''; ?>>Hapus</button>
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
