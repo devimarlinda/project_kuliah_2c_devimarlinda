@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost","u837952942_klinikandisa","","u837952942_klinikandisa");
+    $conn = mysqli_connect("localhost","root","","db_klinik");
     if(!$conn){
         echo "gagal koneksi";
     }

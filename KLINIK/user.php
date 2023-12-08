@@ -55,7 +55,7 @@ while ($record = mysqli_fetch_array($query)) {
                                                 <option selected hidden value="0">Pilih Level User</option>
                                                 <option value="1">Admin</option>
                                                 <option value="2">Dokter</option>
-                                                <option value="3">Pasien</option>
+                                        
                                             </select>
                                             <label for="floatingInput">Level User</label>
                                             <div class="invalid-feedback">
@@ -133,7 +133,7 @@ while ($record = mysqli_fetch_array($query)) {
                                             <div class="form-floating mb-3">
                                                 <select disabled class="form-select" aria-label="Default select example" required name="level" id="">
                                                     <?php
-                                                    $data = array("Admin", "dokter", "Pasien");
+                                                    $data = array("Admin", "dokter");
                                                     foreach ($data as $key => $value) {
                                                         if ($row['level'] == $key + 1) {
                                                             echo "<option selected value=" . ($key + 1) . "> $value</option>";
@@ -208,7 +208,7 @@ while ($record = mysqli_fetch_array($query)) {
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" aria-label="Default select example" required name="level" id="">
                                                     <?php
-                                                    $data = array("Admin", "dokter", "Pasien");
+                                                    $data = array("Admin", "dokter");
                                                     foreach ($data as $key => $value) {
                                                         if ($row['level'] == $key + 1) {
                                                             echo "<option selected value=" . ($key + 1) . "> $value</option>";
@@ -250,6 +250,7 @@ while ($record = mysqli_fetch_array($query)) {
 
                 <!-- end modal edit -->
 
+            
                 <!-- modal Delete -->
                 <div class="modal fade" id="ModalDelete<?php echo $row['nik'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-md modal-fullscreen-md-down">
@@ -264,22 +265,25 @@ while ($record = mysqli_fetch_array($query)) {
                                     <div class="col-lg-12">
                                         <?php
                                         if ($row['username'] == $_SESSION['username_klinik']) {
-                                            echo "<div class='alert alert-danger'> Anda tidak dapat menghapus akun sendiri </div>";
+                                            echo "<div class='alert alert-dangar'> Anda tidak dapat menghapus akun sendiri </div>";
                                         } else {
                                             echo "Apakah Anda Yakin Ingin Menghapus User <b>$row[username]</b>";
                                         }
                                         ?>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;"  data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;"  value="12345" <?php echo ($row['username'] == $_SESSION['username_klinik']) ? 'disabled' : ''; ?>>Hapus</button>
+                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="input_user_validate" value="12345" <?php echo ($row['username'] == $_SESSION['username_klinik']) ?
+                                                                                                                                    'disabled' : ''; ?>>Hapus</button>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
 
+                
                 <!-- end modal Delect -->
 
                 <!-- modal reset password -->
@@ -304,9 +308,9 @@ while ($record = mysqli_fetch_array($query)) {
                                         ?>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-success" name="input_user_validate" value="12345" <?php echo ($row['username'] == $_SESSION['username_klinik']) ?
-                                                                                                                                    'disabled' : ''; ?>>Reset Password</button>
+                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="input_user_validate" value="12345" <?php echo ($row['username'] == $_SESSION['username_klinik']) ?
+                                         'disabled' : ''; ?>>Reset Password</button>
                                     </div>
                                 </form>
                             </div>
@@ -352,9 +356,7 @@ while ($record = mysqli_fetch_array($query)) {
                                                 echo "Admin";
                                             } elseif ($row['level'] == 2) {
                                                 echo "dokter";
-                                            } elseif ($row['level'] == 3) {
-                                                echo "pasien";
-                                            }
+                                            } 
                                             ?></td>
                                     <td><?php echo $row['nohp'] ?></td>
                                     <td class="d-flex">
