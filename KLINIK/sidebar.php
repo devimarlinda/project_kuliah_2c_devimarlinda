@@ -21,18 +21,16 @@
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'user') ? 'active link-light' : 'link-dark'; ?>" href="user"><i class="bi bi-person-vcard"></i> User</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'jadwaldokter') ? 'active link-light' : 'link-dark'; ?>" href="jadwaldokter"><i class="bi bi-calendar-date"></i> Jadwal Dokter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'pasien') ? 'active link-light' : 'link-dark'; ?>" href="pasien"><i class="bi bi-person-fill-add"></i> Pasien</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'daftarkeluhan') ? 'active link-light' : 'link-dark'; ?>" href="daftarkeluhan"><i class="bi bi-card-checklist"></i> Daftar Keluhan</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>" href="report"><i class="bi bi-card-list"></i> Report</a>
-                        </li>
-                        <?php } ?>
-                        <li class="nav-item">
-                            <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'jadwaldokter') ? 'active link-light' : 'link-dark'; ?>" href="jadwaldokter"><i class="bi bi-calendar-date"></i> Jadwal Dokter</a>
-                        </li>
-                        <?php if($hasil['level']==2 || $hasil['level'] == 1){?>
-                        <li class="nav-item">
-                            <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'pasien') ? 'active link-light' : 'link-dark'; ?>" href="pasien"><i class="bi bi-person-fill-add"></i> Pasien</a>
                         </li>
                         <?php } ?>
                     </ul>

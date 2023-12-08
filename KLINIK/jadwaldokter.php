@@ -19,7 +19,7 @@ while ($record = mysqli_fetch_array($query)) {
             </div>
 
 
-            <!-- Modal Tambah user baru -->
+            <!-- Modal Tambah jadwaldokter baru -->
             <div class="modal fade" id="ModalTambahUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                     <div class="modal-content">
@@ -28,7 +28,7 @@ while ($record = mysqli_fetch_array($query)) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="needs-validation" novalidate action="proses/proses_input_jadwaldokter.php" method="POST">
+                            <form class="needs-validation" novalidate action="proses/proses_input_jadwaldokter.php" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="input-group mb-3">
@@ -67,8 +67,20 @@ while ($record = mysqli_fetch_array($query)) {
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" id="floatingInput" placeholder="date" name="jadwal_dokter">
+                                            <select class="form-select" aria-label="Default s
+                                            elect example" name="jadwal_dokter" required>
+                                                <option selected hidden value="0">Pilih Jadwal dokter</option>
+                                                <option value="1">Senin</option>
+                                                <option value="2">Selasa</option>
+                                                <option value="3">Rabu</option>
+                                                <option value="4">Kamis</option>
+                                            
+
+                                            </select>
                                             <label for="floatingInput">jadwal dokter</label>
+                                            <div class="invalid-feedback">
+                                                Pilih Jadwal dokter
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -113,11 +125,11 @@ while ($record = mysqli_fetch_array($query)) {
 
                                     </div>
                                     <div class="row">
-                                    <div class="col-lg-6">
+                                        <div class="col-lg-6">
                                             <div class="form-floating mb-3">
                                                 <select disabled class="form-select" aria-label="Default select example" required name="spesialis" id="">
                                                     <?php
-                                                    $data = array("dokter umum", "dokter anak");
+                                                    $data = array("dokter umum", "dokter gigi");
                                                     foreach ($data as $key => $value) {
                                                         if ($row['spesialis'] == $key + 1) {
                                                             echo "<option selected value=" . ($key + 1) . "> $value</option>";
@@ -136,10 +148,26 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
-                                                <input type="number" class="form-control" id="floatingInput" placeholder="date" name="jadwal_dokter">
-                                                <label for="floatingInput">jadwal dokter</label>
+                                                <select disabled class="form-select" aria-label="Default select example" required name="spesialis" id="">
+                                                    <?php
+                                                    $data = array("senin", "selasa", "rabu","kamis");
+                                                    foreach ($data as $key => $value) {
+                                                        if ($row['jadwal_dokter'] == $key + 1) {
+                                                            echo "<option selected value=" . ($key + 1) . "> $value</option>";
+                                                        } else {
+                                                            echo "<option value=" . ($key + 1) . "> $value</option>";
+                                                        }
+                                                    }
+                                                    ?>
+
+                                                </select>
+                                                <label for="floatingInput">Jadwal dokter</label>
+                                                <div class="invalid-feedback">
+                                                    Pilih Jadwal dokter.
+                                                </div>
                                             </div>
                                         </div>
+                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
@@ -187,12 +215,11 @@ while ($record = mysqli_fetch_array($query)) {
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" aria-label="Default s
-                                            elect example" name="spesialis" required>
+                                                    elect example" name="spesialis" required>
                                                     <option selected hidden value="0">Pilih Spesialis</option>
                                                     <option value="1">dokter umum</option>
                                                     <option value="2">dokter gigi</option>
-                                                    
-
+                      
                                                 </select>
                                                 <label for="floatingInput">Spesialis</label>
                                                 <div class="invalid-feedback">
@@ -202,10 +229,22 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
-                                                <input type="number" class="form-control" id="floatingInput" placeholder="date" name="jadwal_dokter">
-                                                <label for="floatingInput">jadwal dokter</label>
+                                                <select class="form-select" aria-label="Default s
+                                                    elect example" name="jadwal_dokter" required>
+                                                    <option selected hidden value="0">Pilih Jadwal dokter</option>
+                                                    <option value="1">Senin</option>
+                                                    <option value="2">Selasa</option>
+                                                    <option value="3">Rabu</option>
+                                                    <option value="4">Kamis</option>
+
+                                                </select>
+                                                <label for="floatingInput">Jadwal dokter</label>
+                                                <div class="invalid-feedback">
+                                                    Pilih Jadwal dokter.
+                                                </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
@@ -283,10 +322,29 @@ while ($record = mysqli_fetch_array($query)) {
                             ?>
                                 <tr>
                                     <th scope="row"><?php echo $no++ ?></th>
-                                    <td><?php echo $row['foto'] ?></td>
+                                    <td>
+                                        <div style="width: 90px;"> <img src="assets/img/<?php echo $row['foto'] ?>" class="img-thumbnail" alt="...">
+                                    </td>
+                                    
                                     <td><?php echo $row['nama_dokter'] ?></td>
-                                    <td><?php echo $row['spesialis'] ?></td>
-                                    <td><?php echo $row['jadwal_dokter'] ?></td>
+                                    <td> <?php
+                                            if ($row['spesialis'] == 1) {
+                                                echo "dokter umum";
+                                            } elseif ($row['spesialis'] == 2) {
+                                                echo "dokter gigi";
+                                            } 
+                                            ?></td>
+                                    <td> <?php
+                                            if ($row['jadwal_dokter'] == 1) {
+                                                echo "senin";
+                                            } elseif ($row['jadwal_dokter'] == 2) {
+                                                echo "selasa";
+                                            } elseif ($row['jadwal_dokter'] == 3) {
+                                                echo "rabu";
+                                            } elseif ($row['jadwal_dokter'] == 4) {
+                                                echo "kamis";
+                                            } 
+                                            ?></td>
                                     <td class="d-flex">
                                         <button class="btn btn-info btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalView<?php echo $row['id'] ?>"><i class="bi bi-eye"></i></button>
                                         <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id'] ?>"><i class="bi bi-pencil"></i></button>
