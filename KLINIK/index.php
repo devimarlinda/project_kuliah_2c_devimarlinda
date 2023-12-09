@@ -19,8 +19,8 @@
             } elseif (isset($_GET['x']) && $_GET['x'] == 'pasien') {
                 $page = "pasien.php";
                 include "main.php";
-            } elseif (isset($_GET['x']) && $_GET['x'] == 'daftarkeluhan') {
-                $page = "daftarkeluhan.php";
+            } elseif (isset($_GET['x']) && $_GET['x'] == 'rekammedis') {
+                $page = "rekammedis.php";
                 include "main.php";
             } elseif (isset($_GET['x']) && $_GET['x'] == 'report') {
                 if($_SESSION['level_klinik']==1){

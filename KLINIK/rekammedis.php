@@ -1,3 +1,4 @@
+
 <?php
 include "proses/connect.php";
 $query = mysqli_query($conn, "SELECT * FROM tb_daftar_keluhan");
@@ -9,7 +10,7 @@ while ($record = mysqli_fetch_array($query)) {
 <div class="col-lg-9 mt-2">
     <div class="card">
         <div class="card-header">
-            Halaman Pasien
+            Halaman Rekam Medis
         </div>
         <div class="card-body">
             <div class="row">
