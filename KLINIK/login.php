@@ -182,7 +182,7 @@
             <h1 class="h3 mb-3 fw-normal">Please Login</h1>
             <i class="bi bi-house-add fs-1"></i>
 
-            <div class="form-floating text-center">
+            <div class="form-floating text-center mt-3">
                 
                 <input name="username" class="form-control" id="floatingInput" placeholder="name@example.com" required>
                 <label for="floatingInput">Email address</label>
@@ -191,6 +191,7 @@
                 </div>
 
             </div>
+            <div class="form-floating text-center mt-3">
             <div class="form-floating">
                 <input name="password"type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
@@ -198,13 +199,18 @@
                     Masukkan password.
                 </div>
             </div>
+            </div>
 
             <div class=" text-center my-3">
                 <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">Remember me
                 </label>
             </div>
-            <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="abc"> Login</button>
+
+            <button class="btn btn-primary w-100 py-2" type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="submit_validate" value="abc"> Login</button>
+            <p>Belum punya akun?
+                <a href="register.php">Daftar disini</a>
+            </p>
             <p class="mt-5 mb-3 text-body-secondary">&copy; <?php echo date("Y")  ?></p>
         </form>
     </main>

@@ -1,22 +1,162 @@
+<?php
+include "proses/connect.php";
+$query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$_SESSION[username_klinik]' ");
+$records = mysqli_fetch_array($query);
+?>
 <nav class="navbar navbar-expand navbar-dark sticky-top custom-header">
-        <div class="container-lg">
-            <a class="navbar-brand " href="."><i class="bi bi-house-add"></i> KLINIK</a>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav">
+    <div class="container-lg">
+        <a class="navbar-brand" href="."><i class="bi bi-house-add"></i> KLINIK </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="." role="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo $hasil['username'];
+                        ?>
+                    </a>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php 
-                                echo $hasil['username'];
-                            ?>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end mt-2">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-square"></i> Profile</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Setting</a></li>
-                            <li><a class="dropdown-item" href="logout"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="dropdown-menu dropdown-menu-end mt-3 ">
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#ModalUbahProfile"><i class="bi bi-person-square"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="ubahpassword" data-bs-toggle="modal" data-bs-target="#ModalUbahPassword"><i class="bi bi-key-fill"></i> Ubah password</a></li>
+                        <li><a class="dropdown-item" href="logout"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+
+<!-- modal ubah password -->
+<div class="modal fade" id="ModalUbahPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate action="proses/proses_ubah_password.php" method="POST">
+                    <div class="row">
+
+
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input disabled type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required value="<?php echo $_SESSION['username_klinik'] ?>">
+                                <label for="floatingInput">Username</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Username
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingInput" name="passwordlama" required>
+                                <label for="floatingInput">Password Lama</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Password Lama
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingInputPasswordBaru" name="passwordbaru" required>
+                                <label for="floatingInputPasswordBaru">Password Baru</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Password Baru.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-floating mb-3">
+                                <input type="password" class="form-control" id="floatingInputRepasswordBaru" name="repasswordbaru" required>
+                                <label for="floatingInputRepasswordBaru">Ulangi Password Baru</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Ulangi Password Baru.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="ubah_password_validate" value="12345">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- end modal ubah password -->
+
+<!-- modal ubah profiel -->
+<div class="modal fade" id="ModalUbahProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-fullscreen-md-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ubah Profile</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" novalidate action="proses/proses_ubah_profile.php" method="POST">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" required value="<?php echo $_SESSION['username_klinik'] ?>">
+                                <label for="floatingInput">Username</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingNama" name="nama" required value="<?php echo $records['nama'] ?>">
+                                <label for="floatingInput">Nama</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Nama anda.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="floatingInput" name="nohp" required value="<?php echo $records['nohp'] ?>">
+                                <label for="floatingInput">No Hp</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Nomor Hp Anda.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="" style="height: 100px" name="alamat"><?php echo $records['alamat'] ?></textarea>
+                                <label for="floatingInput">Alamat</label>
+                                <div class="invalid-feedback">
+                                    Masukkan Alamat Anda.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="ubah_profile_validate" value="12345">Save changes</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- end modal ubah profile -->

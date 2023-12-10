@@ -30,6 +30,8 @@
                     $page = "home.php";
                     include "main.php";
                 }
+            } elseif (isset($_GET['x']) && $_GET['x'] == 'register') {
+                include "register.php";
             } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {
                 include "login.php";
             } elseif (isset($_GET['x']) && $_GET['x'] == 'logout') {

@@ -10,11 +10,11 @@ if (!empty($_POST['submit_validate'])) {
     if ($hasil) {
         $_SESSION['username_klinik'] = $username;
         $_SESSION['level_klinik'] = $hasil['level'];
-        header('location:../home');
+        header('location:../login');
     } else { ?>
         <script>
             alert('username atau password yang anda masukkan salah');
-            window.location = '../login'
+            window.location = '../login.php'
         </script>
 <?php
     }

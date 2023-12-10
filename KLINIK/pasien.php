@@ -69,7 +69,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="tempat_lahir" required>
                                             <label for="floatingInput">Tempat Lahir</label>
@@ -78,7 +78,16 @@ while ($record = mysqli_fetch_array($query)) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="tanggal_lahir" required>
+                                            <label for="floatingInput">Tanggal Lahir</label>
+                                            <div class="invalid-feedback">
+                                                Masukkan Tanggal Lahir.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="jenis_kelamin" required>
                                             <label for="floatingInput">Jenis Kelamin</label>
@@ -172,7 +181,7 @@ while ($record = mysqli_fetch_array($query)) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <input disabled type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="tempat_lahir" value=" <?php echo $row['tempat_lahir'] ?>" required>
                                             <label for="floatingInput">Tempat Lahir</label>
@@ -181,7 +190,16 @@ while ($record = mysqli_fetch_array($query)) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
+                                        <div class="form-floating mb-3">
+                                            <input disabled type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="tanggal_lahir" value=" <?php echo $row['tanggal_lahir'] ?>" required>
+                                            <label for="floatingInput">Tanggal Lahir</label>
+                                            <div class="invalid-feedback">
+                                                Masukkan Tanggal Lahir.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <input disabled type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="jenis_kelamin" value=" <?php echo $row['jenis_kelamin'] ?>" required>
                                             <label for="floatingInput">Jenis Kelamin</label>
@@ -274,6 +292,7 @@ while ($record = mysqli_fetch_array($query)) {
                         <th scope="col">Nama Lengkap</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Tempat Lahir</th>
+                        <th scope="col">Tanggal Lahir</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">No Hp</th>
                         <th scope="col">Aksi</th>
@@ -292,6 +311,7 @@ while ($record = mysqli_fetch_array($query)) {
                             <td><?php echo $row['nama_lengkap'] ?></td>
                             <td><?php echo $row['alamat'] ?></td>
                             <td><?php echo $row['tempat_lahir'] ?></td>
+                            <td><?php echo $row['tanggal_lahir'] ?></td>
                             <td><?php echo $row['jenis_kelamin'] ?></td>
                             <td><?php echo $row['no_hp'] ?></td>
                             <td class="d-flex">

@@ -1,117 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+    if(!empty($_SESSION['username_klinik'])){
+        header('location:home');
+    }
+?>
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
 
 <head>
-    <!-- meta tags -->
+    <script src="../assets/js/color-modes.js"></script>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>petani - Registration</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        
+        .password-icon {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+    </style>
 
-    <!-- costum css -->
-    <link rel="stylesheet" href="style.css">
+    <link href="assets/css/login.css" rel="stylesheet">
 </head>
-<style>
-    /* mengatur warna backgroud dan padding pada tag body bagian atas agar form tidak menempel diatas */
-    body {
-        background: rgb(9, 74, 53);
-        padding-top: 10vh;
-    }
 
-    /* mengatur warna backgroud form */
-    /*form {
-        /*background: url(assets/img/bg01.jpg);
-    /*}
+<body class="text-center d-flex align-items-center py-4 bg-body-tertiary">
 
-    /* mengatur border dan padding class form-container */
-    .form-container {
-        border-radius: 10px;
-        padding: 30px;
-    }
-</style>
+    <main class="form-signin w-100 m-auto">
+        <form class="needs-validation" novalidate action="proses/proses_register.php" method="POST">
+            <i class="bi bi-house-add fs-1"></i>
+            <h1 class="h3 mb-3 fw-normal">Register</h1>
 
-<body>
-    <section class="container-fluid">
-        <!-- justify-content-center untuk mengatur posisi form agar berada di tengah-tengah -->
-        <section class="row justify-content-center <?php echo $row['id'] ?>">
-            <section class="col-12 col-sm-6 col-md-4 text-white">
-                <form style="border-radius :20px ;" class="form-container" class="needs-validation" novalidate action="proses/proses_input_register.php" method="POST">
-                    <h2 class="text-center font-weight-bold"> Register </h2>
-                    <div class="form-group">
-                        <label for="nama" class="form-label">Nik</label>
-                        <input type="text" class="form-control" id="nik_pasien" name="nik_pasien">
-                        <div class="invalid-feedback">
-                            Masukkan nik.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="nama" class="form-label">Nama lengkap</label>
-                        <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
-                        <div class="invalid-feedback">
-                            Masukkan nama.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="username" class="form-label">username</label>
-                        <input type="email" class="form-control" id="username" name="username">
-                    </div>
+            <div class="form-floating position-relative mt-1">
+                <input name="nik_pasien" class="form-control" id="nik_pasien" placeholder="nik_pasien" required>
+                <label for="nik_pasien">Nik</label>
+                <div class="invalid-feedback">
+                    Masukkan nik.
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <label for="alamat" class="form-label">Alamat</label>
-                        <input type="text" class="form-control" id="alamat" name="alamat">
-                        <div class="invalid-feedback">
-                            Masukkan alamat.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
-                        <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
-                        <div class="invalid-feedback">
-                            Masukkan Tempat Lahir.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" aria-label="Default select example" name="jenis_kelamin" required>
-                                <option selected hidden value="">Pilih Jenis Kelamin</option>
-                                <option disabled value="1">Perempuan</option>
-                                <option disabled value="2">Laki-Laki</option>
+            <div class="form-floating position-relative mt-1">
+            <input name="nama_lengkap" class="form-control" id="nama_lengkap" placeholder="nama_lengkap" required>
+                <label for="nama_lengkap">Nama</label>
+                <div class="invalid-feedback">
+                    Masukkan Nama.
+                </div>
+            </div>
+            <div class="form-floating position-relative mt-1">
+                <input name="username" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <label for="floatingInput">Email address</label>
+                <div class="invalid-feedback">
+                    Masukkan email yang valid.
+                </div>
+            </div>
+            <div class="form-floating position-relative mt-1">
+                <input name="alamat" class="form-control" id="alamat" placeholder="alamat" required>
+                <label for="alamat">Alamat</label>
+                <div class="invalid-feedback">
+                    Masukkan Alamat.
+                </div>
+            </div>
+            <div class="form-floating position-relative mt-1">
+                <input name="tempat_lahir" class="form-control" id="tempat_lahir" placeholder="tempat_lahir" required>
+                <label for="tempat_lahir">Tempat Lahir</label>
+                <div class="invalid-feedback">
+                    Masukkan Tempat Lahir.
+                </div>
+            </div>
+            <div class="form-floating position-relative mt-1">
+                <input name="tanggal_lahir" class="form-control" id="tanggal_lahir" placeholder="tanggal_lahir" required>
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+                <div class="invalid-feedback">
+                    Masukkan Tanggal Lahir.
+                </div>
+            </div>
+            <div class="form-floating position-relative mt-1">
+                <select class="form-select" aria-label="Default select example" name="jenis_kelamin" required>
+                        <option selected hidden value="">Jenis Kelamin</option>
+                        <option  value="1">Perempuan</option>
+                        <option  value="2">Laki-Laki</option>
 
-                            </select>
-                            <div class="invalid-feedback">
-                                Pilih Jenis Kelamin.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                        <label for="no_hp">Nomor HP</label>
-                        <input type="text" class="form-control" id="no_hp" name="no_hp">
-                        <div class="invalid-feedback">
-                            Masukkan no hp.
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
-                        <div class="invalid-feedback">
-                            Masukkan password.
-                        </div>
-                    </div>
+                    </select>
+                <div class="invalid-feedback">
+                    Masukkan Jenis Kelamin.
+                </div>
+            </div>
 
-                    <button class="w-100 btn btn-lg text-white" style="background: #2E2F26;" type="submit" name="input_register_validate" value="abc">Register</button>
-                    <div class="form-footer mt-2">
-                        <p> Sudah punya account? <a href="login">Login</a></p>
+            <div class="form-floating position-relative mt-1">
+                    <input name="no_hp" class="form-control" id="no_hp" placeholder="no_hp" required>
+                    <label for="no_hp">Nomor HP</label>
+                    <div class="invalid-feedback">
+                        Masukkan no hp.
                     </div>
-                </form>
-            </section>
-        </section>
-    </section>
+                </div>
 
-    <!-- Bootstrap requirement jQuery pada posisi pertama, kemudian Popper.js, danyang terakhit Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+            <div class="form-floating position-relative mt-1">
+                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+                <i class="bi bi-eye password-icon" onclick="togglePasswordVisibility('floatingPassword')"></i>
+                <div class="invalid-feedback">
+                    Please enter a password.
+                </div>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="submit_register" value="register">Register</button>
+
+
+            <p class="mt-3">
+                Already have an account? <a href="login.php">Login </a>.
+            </p>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2022 - <?php echo date("Y") ?></p>
+        </form>
+    </main>
+
+    <script>
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+
+        function togglePasswordVisibility(passwordFieldId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            var passwordIcon = document.querySelector('.password-icon');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordIcon.classList.remove('bi-eye');
+                passwordIcon.classList.add('bi-eye-slash');
+            } else {
+                passwordField.type = "password";
+                passwordIcon.classList.remove('bi-eye-slash');
+                passwordIcon.classList.add('bi-eye');
+            }
+        }
+    </script>
 </body>
 
 </html>
