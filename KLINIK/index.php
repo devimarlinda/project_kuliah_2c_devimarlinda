@@ -22,14 +22,7 @@
             } elseif (isset($_GET['x']) && $_GET['x'] == 'rekammedis') {
                 $page = "rekammedis.php";
                 include "main.php";
-            } elseif (isset($_GET['x']) && $_GET['x'] == 'report') {
-                if($_SESSION['level_klinik']==1){
-                $page = "report.php";
-                include "main.php";
-                }else{
-                    $page = "home.php";
-                    include "main.php";
-                }
+        
             } elseif (isset($_GET['x']) && $_GET['x'] == 'register') {
                 include "register.php";
             } elseif (isset($_GET['x']) && $_GET['x'] == 'login') {

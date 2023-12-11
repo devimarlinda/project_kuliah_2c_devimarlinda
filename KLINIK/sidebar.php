@@ -29,9 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'rekammedis') ? 'active link-light' : 'link-dark'; ?>" href="rekammedis"><i class="bi bi-card-checklist"></i> Rekam Medis</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>" href="report"><i class="bi bi-card-list"></i> Report</a>
-                        </li>
+                        
                         <?php } ?>
                     </ul>
                 </div>

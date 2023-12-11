@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>petani - Registration</title>
+    <title> Registration</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -40,7 +40,7 @@
     <main class="form-signin w-100 m-auto">
         <form class="needs-validation" novalidate action="proses/proses_register.php" method="POST">
             <i class="bi bi-house-add fs-1"></i>
-            <h1 class="h3 mb-3 fw-normal">Register</h1>
+            <h1 class="h3 mb-3 fw-normal">Formulir Pendaftaran Online Pasien di Klinik Andisa</h1>
 
             <div class="form-floating position-relative mt-1">
                 <input name="nik_pasien" class="form-control" id="nik_pasien" placeholder="nik_pasien" required>
@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="submit_register" value="register">Register</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="submit_register" value="register">Daftar</button>
 
 
             <p class="mt-3">

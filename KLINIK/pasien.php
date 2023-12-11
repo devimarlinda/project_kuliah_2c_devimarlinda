@@ -135,7 +135,7 @@ while ($record = mysqli_fetch_array($query)) {
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel"> Detail Data User</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"> Detail Data Pasien</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -243,7 +243,7 @@ while ($record = mysqli_fetch_array($query)) {
             <div class="modal-dialog modal-md modal-fullscreen-md-down">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data User</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Data Pasien</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -254,7 +254,7 @@ while ($record = mysqli_fetch_array($query)) {
                                 if ($row['username'] == $_SESSION['username_klinik']) {
                                     echo "<div class='alert alert-dangar'> Anda tidak dapat menghapus akun sendiri </div>";
                                 } else {
-                                    echo "Apakah Anda Yakin Ingin Menghapus User <b>$row[username]</b>";
+                                    echo "Apakah Anda Yakin Ingin Menghapus Data Pasien <b>$row[username]</b>";
                                 }
                                 ?>
                             </div>

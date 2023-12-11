@@ -20,7 +20,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $pdo->prepare("SELECT * FROM tb_pasien WHERE nama_lengkap = :nama_lengkap");
-        $stmt->bindParam(':nama_lengkap', $nama_lengkap);
+        $stmt->bindParam(':nama_lengkap', $nama);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $message = '<script>alert("Data berhasil dimasukkan")
@@ -28,7 +28,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
         }
         $stmt = $pdo->prepare("INSERT INTO tb_pasien (nik_pasien,nama_lengkap, username,alamat,tempat_lahir,tanggal_lahir,jenis_kelamin,no_hp, password) VALUES (:nik_pasien, :nama_lengkap, :username, :alamat, :tempat_lahir, :tanggal_lahir, :jenis_kelamin, :no_hp, :password)");
         $stmt->bindParam(':nik_pasien', $nik_pasien);
-        $stmt->bindParam(':nama_lengkap', $nama_lengkap);
+        $stmt->bindParam(':nama_lengkap', $nama);
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':alamat', $alamat);
         $stmt->bindParam(':tempat_lahir', $tempat_lahir);
@@ -38,7 +38,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
         $stmt->bindParam(':password', $password);
         $stmt->execute();
         $message = '<script>alert("Register berhasil")
-        window.location="../login"</script>';
+        window.location="../login.php"</script>';
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

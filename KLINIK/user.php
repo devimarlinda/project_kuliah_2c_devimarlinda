@@ -96,8 +96,9 @@ while ($record = mysqli_fetch_array($query)) {
             <!-- end tambah user baru -->
 
             <?php
-            foreach ($result as $row) {
-            ?>
+            foreach ($result as $row)
+            {
+               ?>
                 <!-- Modal New -->
                 <div class="modal fade" id="ModalView<?php echo $row['nik'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
@@ -322,12 +323,12 @@ while ($record = mysqli_fetch_array($query)) {
                 <!-- end modal reset password  -->
 
 
-            <?php
+               <?php
             }
-            if (empty($result)) {
+               if (empty($result)) {
                 echo "Data user tidak ada";
-            } else {
-            ?>
+              } else {
+               ?>
 
                 <div class="table-responsive">
                     <table class="table table-hover">
@@ -372,7 +373,7 @@ while ($record = mysqli_fetch_array($query)) {
                         </tbody>
                     </table>
                 </div>
-            <?php
+               <?php
             }
             ?>
         </div>
