@@ -1,6 +1,6 @@
 <?php
     if(!empty($_SESSION['username_klinik'])){
-        header('location:home');
+        header('location:login');
     }
 ?>
 
@@ -34,6 +34,7 @@
 
     <link href="assets/css/login.css" rel="stylesheet">
 </head>
+
 
 <body class="text-center d-flex align-items-center py-4 bg-body-tertiary">
 
@@ -104,6 +105,7 @@
                         Masukkan no hp.
                     </div>
                 </div>
+                
 
 
 

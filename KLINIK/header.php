@@ -1,8 +1,28 @@
 <?php
 include "proses/connect.php";
-$query = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$_SESSION[username_klinik]' ");
-$records = mysqli_fetch_array($query);
+
+// Mengambil data dari tabel tb_user
+$queryUser = mysqli_query($conn, "SELECT * FROM tb_user WHERE username='$_SESSION[username_klinik]' ");
+$recordsUser = mysqli_fetch_array($queryUser);
+
+// Mengambil data dari tabel tb_pasien
+$queryPasien = mysqli_query($conn, "SELECT * FROM tb_pasien WHERE username='$_SESSION[username_klinik]' ");
+$recordsPasien = mysqli_fetch_array($queryPasien);
+
+// Menggabungkan data dari user dan pasien ke dalam satu variabel $records
+$records = [];
+if ($recordsUser) {
+    $records = $recordsUser;
+}
+
+if ($recordsPasien) {
+    // Jika $records tidak kosong, gunakan array_merge, jika kosong, gunakan langsung $recordsPasien
+    $records = empty($records) ? $recordsPasien : array_merge($records, $recordsPasien);
+}
 ?>
+
+
+
 <nav class="navbar navbar-expand navbar-dark sticky-top custom-header">
     <div class="container-lg">
         <a class="navbar-brand" href="."><i class="bi bi-house-add"></i> KLINIK </a>
@@ -10,11 +30,10 @@ $records = mysqli_fetch_array($query);
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="." role="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $hasil['username'];
-                        ?>
+                        <?php echo $_SESSION['username_klinik']; ?>
                     </a>
 
-                    <ul class="dropdown-menu dropdown-menu-end mt-3 ">
+                    <ul class="dropdown-menu dropdown-menu-end mt-3">
                         <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#ModalUbahProfile"><i class="bi bi-person-square"></i> Profile</a></li>
                         <li><a class="dropdown-item" href="ubahpassword" data-bs-toggle="modal" data-bs-target="#ModalUbahPassword"><i class="bi bi-key-fill"></i> Ubah password</a></li>
                         <li><a class="dropdown-item" href="logout"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
@@ -25,6 +44,7 @@ $records = mysqli_fetch_array($query);
     </div>
 </nav>
 
+<!-- ... (kode lainnya tetap sama) -->
 
 <!-- modal ubah password -->
 <div class="modal fade" id="ModalUbahPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -94,7 +114,6 @@ $records = mysqli_fetch_array($query);
     </div>
 </div>
 
-<!-- end modal ubah password -->
 
 <!-- modal ubah profiel -->
 <div class="modal fade" id="ModalUbahProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -160,3 +179,5 @@ $records = mysqli_fetch_array($query);
 </div>
 
 <!-- end modal ubah profile -->
+
+

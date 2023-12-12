@@ -16,7 +16,7 @@
                         <li class="nav-item">
                             <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'dashboard') || !isset($_GET['x'])) ? 'active link-light' :'link-dark'; ?>" aria-current="page" href="dashboard"> <i' class="bi bi-house-door"></i> Dashboard</a>
                         </li>
-                        <?php if($hasil['level']==1){?>
+                       
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'user') ? 'active link-light' : 'link-dark'; ?>" href="user"><i class="bi bi-person-vcard"></i> User</a>
                         </li>
@@ -30,7 +30,7 @@
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'rekammedis') ? 'active link-light' : 'link-dark'; ?>" href="rekammedis"><i class="bi bi-card-checklist"></i> Rekam Medis</a>
                         </li>
                         
-                        <?php } ?>
+                        
                     </ul>
                 </div>
             </div>
