@@ -8,6 +8,7 @@ $alamat = (isset($_POST['alamat'])) ? htmlentities($_POST['alamat']) : "";
 $tempat_lahir = (isset($_POST['tempat_lahir'])) ? htmlentities($_POST['tempat_lahir']) : "";
 $tanggal_lahir = (isset($_POST['tanggal_lahir'])) ? htmlentities($_POST['tanggal_lahir']) : "";
 $jenis_kelamin = (isset($_POST['jenis_kelamin'])) ? htmlentities($_POST['jenis_kelamin']) : "";
+$level = (isset($_POST['level'])) ? htmlentities($_POST['level']) : "";
 $no_hp = (isset($_POST['no_hp'])) ? htmlentities($_POST['no_hp']) : "";
 $password = (isset($_POST['password'])) ? md5(htmlentities($_POST['password'])) : "";
 
@@ -36,8 +37,9 @@ if (mysqli_num_rows($query_check_existing) > 0) {
 
 // Jika semua validasi berhasil, lakukan INSERT
 if (!empty($_POST['input_pasien_validate'])) {
-    $query_insert = mysqli_query($conn, "INSERT INTO tb_pasien (nik_pasien,username,nama_lengkap,alamat,tempat_lahir,tanggal_lahir,jenis_kelamin,no_hp,password) 
-    VALUES('$nik_pasien','$username','$nama_lengkap','$alamat','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$no_hp','$password')");
+    
+    $query_insert = mysqli_query($conn, "INSERT INTO tb_pasien (nik_pasien,username,nama_lengkap,alamat,tempat_lahir,tanggal_lahir,jenis_kelamin,level,no_hp,password) 
+    VALUES('$nik_pasien','$username','$nama_lengkap','$alamat','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$level','$no_hp','$password')");
 
     if (!$query_insert) {
         $message = '<script>alert("Data gagal dimasukkan"); 

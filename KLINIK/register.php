@@ -72,6 +72,7 @@ if (!empty($_SESSION['username_klinik'])) {
                     Masukkan email yang valid.
                 </div>
             </div>
+
             <div class="form-floating position-relative mt-1">
                 <input name="alamat" class="form-control" id="alamat" placeholder="alamat" required>
                 <label for="alamat">Alamat</label>
@@ -125,6 +126,17 @@ if (!empty($_SESSION['username_klinik'])) {
                     Masukkan Jenis Kelamin.
                 </div>
             </div>
+            <div class="form-floating position-relative mt-1">
+                <select class="form-select" id="level" name="level" required>
+                    <option selected hidden value="">Pilih Level</option>
+                    <option value="3">Pasien</option>
+                </select>
+                <label for="level">Level</label>
+                <div class="invalid-feedback">
+                    Pilih Level.
+                </div>
+            </div>
+
             <div class="form-floating position-relative mt-1">
                 <input name="no_hp" class="form-control" id="no_hp" placeholder="no_hp" required>
                 <label for="no_hp">Nomor HP</label>

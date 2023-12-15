@@ -14,14 +14,22 @@
                     include "main.php";
                 }
             } elseif (isset($_GET['x']) && $_GET['x'] == 'jadwaldokter') {
+              
                 $page = "jadwaldokter.php";
                 include "main.php";
+                
+
             } elseif (isset($_GET['x']) && $_GET['x'] == 'pasien') {
+                if($_SESSION['level_klinik']==1  ){
                 $page = "pasien.php";
                 include "main.php";
+                }
+
             } elseif (isset($_GET['x']) && $_GET['x'] == 'rekammedis') {
+                if($_SESSION['level_klinik']==1 || $_SESSION['level_klinik']== 2){
                 $page = "rekammedis.php";
                 include "main.php";
+                }
         
             } elseif (isset($_GET['x']) && $_GET['x'] == 'register') {
                 include "register.php";

@@ -55,6 +55,7 @@ while ($record = mysqli_fetch_array($query)) {
                                                 <option selected hidden value="0">Pilih Level User</option>
                                                 <option value="1">Admin</option>
                                                 <option value="2">Dokter</option>
+                                                <option value="3">pasien</option>
                                         
                                             </select>
                                             <label for="floatingInput">Level User</label>
@@ -134,7 +135,7 @@ while ($record = mysqli_fetch_array($query)) {
                                             <div class="form-floating mb-3">
                                                 <select disabled class="form-select" aria-label="Default select example" required name="level" id="">
                                                     <?php
-                                                    $data = array("Admin", "dokter");
+                                                    $data = array("Admin", "dokter","pasien");
                                                     foreach ($data as $key => $value) {
                                                         if ($row['level'] == $key + 1) {
                                                             echo "<option selected value=" . ($key + 1) . "> $value</option>";
@@ -209,7 +210,7 @@ while ($record = mysqli_fetch_array($query)) {
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" aria-label="Default select example" required name="level" id="">
                                                     <?php
-                                                    $data = array("Admin", "dokter");
+                                                    $data = array("Admin", "dokter","pasien");
                                                     foreach ($data as $key => $value) {
                                                         if ($row['level'] == $key + 1) {
                                                             echo "<option selected value=" . ($key + 1) . "> $value</option>";
@@ -357,7 +358,9 @@ while ($record = mysqli_fetch_array($query)) {
                                                 echo "Admin";
                                             } elseif ($row['level'] == 2) {
                                                 echo "dokter";
-                                            } 
+                                            } elseif ($row['level'] == 3) {
+                                                echo "pasien";
+                                            }
                                             ?></td>
                                     <td><?php echo $row['nohp'] ?></td>
                                     <td class="d-flex">
@@ -380,24 +383,24 @@ while ($record = mysqli_fetch_array($query)) {
     </div>
 </div>
 
-<Script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+<script>
+    // Contoh JavaScript awal untuk menonaktifkan pengiriman formulir jika ada bidang yang tidak valid
     (() => {
-        'use strict'
+        'use strict';
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
+        // Ambil semua formulir yang ingin kita beri gaya validasi Bootstrap kustom
+        const forms = document.querySelectorAll('.needs-validation');
 
-        // Loop over them and prevent submission
+        // Loopi dan cegah pengiriman formulir
         Array.from(forms).forEach(form => {
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
+                    event.preventDefault();
+                    event.stopPropagation();
                 }
 
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-</Script>
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>

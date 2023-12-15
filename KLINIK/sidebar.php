@@ -15,21 +15,29 @@
                 <ul class="navbar-nav custom-nav-pills flex-column justify-content-end flex-grow-1 pe-0">
                         <li class="nav-item">
                             <a class="nav-link ps-2 <?php echo ((isset($_GET['x']) && $_GET['x'] == 'dashboard') || !isset($_GET['x'])) ? 'active link-light' :'link-dark'; ?>" aria-current="page" href="dashboard"> <i' class="bi bi-house-door"></i> Dashboard</a>
-                        </li>
-                       
+                        </li>   
+                        <?php if (!is_null($hasil) && isset($hasil['level']) && $hasil['level'] == 1) { ?>
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'user') ? 'active link-light' : 'link-dark'; ?>" href="user"><i class="bi bi-person-vcard"></i> User</a>
                         </li>
+                        <?php } ?>
+
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'jadwaldokter') ? 'active link-light' : 'link-dark'; ?>" href="jadwaldokter"><i class="bi bi-calendar-date"></i> Jadwal Dokter</a>
                         </li>
+                      
+
+                        <?php if (!is_null($hasil) && isset($hasil['level']) && $hasil['level'] == 1) { ?> 
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'pasien') ? 'active link-light' : 'link-dark'; ?>" href="pasien"><i class="bi bi-person-fill-add"></i> Pasien</a>
                         </li>
+                        <?php } ?>
+
+                        <?php if (!is_null($hasil) && isset($hasil['level']) && ($hasil['level'] == 1 || $hasil['level'] == 2)) { ?>  
                         <li class="nav-item">
                             <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'rekammedis') ? 'active link-light' : 'link-dark'; ?>" href="rekammedis"><i class="bi bi-card-checklist"></i> Rekam Medis</a>
                         </li>
-                        
+                        <?php } ?>
                         
                     </ul>
                 </div>

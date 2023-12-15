@@ -125,18 +125,30 @@ while ($record = mysqli_fetch_array($query)) {
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <input type="number" class="form-control" id="floatingInput" placeholder="88XXXXX" name="no_hp">
                                             <label for="floatingInput">No HP</label>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-floating mb-3">
                                             <input type="password" class="form-control" id="floatingInput" placeholder="password" name="password">
                                             <label for="floatingPassword">Password</label>
                                         </div>
                                     </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example" name="level" required>
+                                                <option selected hidden value="3">Pasien</option>
+                                            </select>
+                                            <label for="floatingInput">Level User</label>
+                                            <div class="invalid-feedback">
+                                                Pilih Level User.
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                         </div>
 
@@ -177,7 +189,7 @@ while ($record = mysqli_fetch_array($query)) {
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
                                                 <input disabled type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" value=" <?php echo $row['username'] ?>" required>
@@ -238,17 +250,23 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-floating mb-3">
                                                 <input disabled type="number" class="form-control" id="floatingInput" placeholder="08XXXXX" name="no_hp" value="<?php echo $row['no_hp'] ?>">
                                                 <label for="floatingInput">No HP</label>
                                             </div>
 
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <div class="form-floating mb-3">
                                                 <input disabled type="password" class="form-control" id="floatingInput" placeholder="password" name="password" value=" <?php echo $row['password'] ?>" required>
                                                 <label for="floatingPassword">Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-floating mb-3">
+                                                <input disabled type="level" class="form-control" id="floatingInput" placeholder="level" name="level" value=" <?php echo $row['level'] ?>" required>
+                                                <label for="floatingPassword">Level</label>
                                             </div>
                                         </div>
                                     </div>
@@ -323,6 +341,7 @@ while ($record = mysqli_fetch_array($query)) {
                                 <th scope="col">Tempat Lahir</th>
                                 <th scope="col">Tanggal Lahir</th>
                                 <th scope="col">Jenis Kelamin</th>
+                                <th scope="col">Level</th>
                                 <th scope="col">No Hp</th>
                                 <th scope="col">Aksi</th>
                             </tr>
@@ -342,6 +361,12 @@ while ($record = mysqli_fetch_array($query)) {
                                     <td><?php echo $row['tempat_lahir'] ?></td>
                                     <td><?php echo $row['tanggal_lahir'] ?></td>
                                     <td><?php echo $row['jenis_kelamin'] ?></td>
+                                    <td> <?php
+                                            if ($row['level'] == 3) {
+                                                echo "pasien";
+                                            }
+                                            ?></td>
+
                                     <td><?php echo $row['no_hp'] ?></td>
                                     <td class="d-flex">
 

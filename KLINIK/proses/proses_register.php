@@ -8,6 +8,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
     $tempat_lahir = $_POST['tempat_lahir'];
     $tanggal_lahir = $_POST['tanggal_lahir'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
+    $level= $_POST['level'];
     $no_hp = $_POST['no_hp'];
     $password = (isset($_POST['password'])) ? md5(htmlentities($_POST['password'])) : "";
 
@@ -50,7 +51,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
                 window.location="../register.php"</script>';
             } else {
                 // Insert new user
-                $stmt = $pdo->prepare("INSERT INTO tb_pasien (nik_pasien, nama_lengkap, username, alamat, tempat_lahir, tanggal_lahir, jenis_kelamin, no_hp, password) VALUES (:nik_pasien, :nama_lengkap, :username, :alamat, :tempat_lahir, :tanggal_lahir, :jenis_kelamin, :no_hp, :password)");
+                $stmt = $pdo->prepare("INSERT INTO tb_pasien (nik_pasien, nama_lengkap, username, alamat, tempat_lahir, tanggal_lahir, jenis_kelamin,level, no_hp, password) VALUES (:nik_pasien, :nama_lengkap, :username, :alamat, :tempat_lahir, :tanggal_lahir, :jenis_kelamin,:level, :no_hp, :password)");
                 $stmt->bindParam(':nik_pasien', $nik_pasien);
                 $stmt->bindParam(':nama_lengkap', $nama);
                 $stmt->bindParam(':username', $username);
@@ -58,6 +59,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
                 $stmt->bindParam(':tempat_lahir', $tempat_lahir);
                 $stmt->bindParam(':tanggal_lahir', $tanggal_lahir);
                 $stmt->bindParam(':jenis_kelamin', $jenis_kelamin);
+                $stmt->bindParam(':level', $level);
                 $stmt->bindParam(':no_hp', $no_hp);
                 $stmt->bindParam(':password', $password);
                 $stmt->execute();
