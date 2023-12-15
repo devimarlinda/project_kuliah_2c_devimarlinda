@@ -76,71 +76,8 @@ while ($record = mysqli_fetch_array($query)) {
             <!-- End Modal Tambah Order Baru-->
 
 
-            <!-- modal edit -->
-            <div class="modal fade" id="ModalEdit<?php echo $row['id_rekammedis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl modal-fullscreen-md-down">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit dan tambah keluhan</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="needs-validation" novalidate action="proses/proses_edit_rekammedis.php" method="POST">
-                                <input type="hidden" value="<?php echo $row['id_rekammedis'] ?>" name="id_rekammedis">
 
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="uploadFoto" name="id_rekammedis" value="<?php echo date('ymdHi') . rand(100, 999) ?>" readonly>
-                                            <label for="uploadFoto">Id Rekammedis</label>
-                                            <div class="invalid-feedback">
-                                                Masukkan id rekammedis
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" required>
-                                            <label for="pelanggan">Nama</label>
-                                            <div class="invalid-feedback">
-                                                Masukkan Nama Pasien
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="keluhan" placeholder="keluhan" name="keluhan" required>
-                                            <label for="pelanggan">keluhan Pasien</label>
-                                            <div class="invalid-feedback">
-                                                Masukkan Keluhan pasien
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="input_rekammedis_validate" value="12345"> Save </button>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- end modal edit -->
-
-            
-            
             <?php
-
             if (empty($result)) {
                 echo "Data user tidak ada";
             } else {
@@ -170,44 +107,76 @@ while ($record = mysqli_fetch_array($query)) {
                                     <td><?php echo $row['waktu_berkunjung'] ?></td>
                                     <td><?php echo $row['keluhan'] ?></td>
                                     <td class="d-flex">
-
                                         <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id_rekammedis'] ?>"><i class="bi bi-pencil"></i></button>
-                                        
                                     </td>
                                 </tr>
+
+                                <!-- Modal Edit -->
+                                <div class="modal fade" id="ModalEdit<?php echo $row['id_rekammedis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl modal-fullscreen-md-down">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit dan tambah keluhan</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="needs-validation" novalidate action="proses/proses_edit_rekammedis.php" method="POST">
+                                                    <input type="hidden" value="<?php echo $row['id_rekammedis'] ?>" name="id_rekammedis">
+
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="form-floating mb-3">
+                                                                <input disabled type="text" class="form-control" id="id_rekammedis" name="id_rekammedis" value=" <?php echo $row['id_rekammedis'] ?>">
+                                                                <label for="id_rekammedis">Id Rekammedis</label>
+                                                                <div class="invalid-feedback">
+                                                                    Masukkan id rekammedis
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="nama" required value="<?php echo $row['nama'] ?>">
+                                                                <label for="floatingInput">Nama</label>
+                                                                <div class="invalid-feedback">
+                                                                    Masukkan Nama.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="keluhan" placeholder="keluhan" name="keluhan" required>
+                                                                <label for="keluhan">keluhan Pasien</label>
+                                                                <div class="invalid-feedback">
+                                                                    Masukkan Keluhan pasien
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="input_rekammedis_validate" value="12345"> Save </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal Edit -->
                             <?php
                             }
                             ?>
                         </tbody>
-
                     </table>
                 </div>
-
             <?php
             }
             ?>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (() => {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-</script>

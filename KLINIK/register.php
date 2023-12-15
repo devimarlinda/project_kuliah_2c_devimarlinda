@@ -1,7 +1,7 @@
 <?php
-    if(!empty($_SESSION['username_klinik'])){
-        header('location:login');
-    }
+if (!empty($_SESSION['username_klinik'])) {
+    header('location:login');
+}
 ?>
 
 <!doctype html>
@@ -17,11 +17,18 @@
     <meta name="generator" content="Hugo 0.118.2">
     <title> Registration</title>
 
+    <!-- Load jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Load jQuery UI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
-        
         .password-icon {
             cursor: pointer;
             position: absolute;
@@ -52,7 +59,7 @@
             </div>
 
             <div class="form-floating position-relative mt-1">
-            <input name="nama_lengkap" class="form-control" id="nama_lengkap" placeholder="nama_lengkap" required>
+                <input name="nama_lengkap" class="form-control" id="nama_lengkap" placeholder="nama_lengkap" required>
                 <label for="nama_lengkap">Nama</label>
                 <div class="invalid-feedback">
                     Masukkan Nama.
@@ -86,29 +93,45 @@
                     Masukkan Tanggal Lahir.
                 </div>
             </div>
-            <div class="form-floating position-relative mt-1">
-                <select class="form-select" aria-label="Default select example" name="jenis_kelamin" required>
-                        <option selected hidden value="">Jenis Kelamin</option>
-                        <option  value="1">Perempuan</option>
-                        <option  value="2">Laki-Laki</option>
 
-                    </select>
+            <script>
+                $(function() {
+                    // Inisialisasi datepicker pada elemen dengan id "tanggal_lahir"
+                    $("#tanggal_lahir").datepicker({
+                        dateFormat: "yy-mm-dd", // Format tanggal sesuai kebutuhan
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "c-100:c+10" // Rentang tahun yang dapat dipilih
+                    });
+                });
+            </script>
+
+
+            <div class="form-floating position-relative mt-1">
+                <select class="form-select" aria-label="Default select example" required name="jenis_kelamin" id="">
+                    <?php
+                    $data = array("Perempuan", "Laki-Laki");
+                    foreach ($data as $key => $value) {
+                        // Menggunakan nilai langsung dari array sebagai value opsi
+                        if ($row['jenis_kelamin'] == $value) {
+                            echo "<option selected value=\"$value\">$value</option>";
+                        } else {
+                            echo "<option value=\"$value\">$value</option>";
+                        }
+                    }
+                    ?>
+                </select>
                 <div class="invalid-feedback">
                     Masukkan Jenis Kelamin.
                 </div>
             </div>
-
             <div class="form-floating position-relative mt-1">
-                    <input name="no_hp" class="form-control" id="no_hp" placeholder="no_hp" required>
-                    <label for="no_hp">Nomor HP</label>
-                    <div class="invalid-feedback">
-                        Masukkan no hp.
-                    </div>
+                <input name="no_hp" class="form-control" id="no_hp" placeholder="no_hp" required>
+                <label for="no_hp">Nomor HP</label>
+                <div class="invalid-feedback">
+                    Masukkan no hp.
                 </div>
-                
-
-
-
+            </div>
             <div class="form-floating position-relative mt-1">
                 <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
@@ -117,10 +140,7 @@
                     Please enter a password.
                 </div>
             </div>
-
             <button class="w-100 btn btn-lg btn-primary" type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="submit_register" value="register">Daftar</button>
-
-
             <p class="mt-3">
                 Already have an account? <a href="login.php">Login </a>.
             </p>

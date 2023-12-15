@@ -95,7 +95,7 @@ while ($record = mysqli_fetch_array($query)) {
 
             <!-- end tambah user baru -->
 
-            <?php
+           <?php
             foreach ($result as $row)
             {
                ?>
