@@ -30,27 +30,30 @@ if (!empty($_POST['input_jadwaldokter_validate'])) {
                     if ($imageType != 'jpg' && $imageType != 'png' && $imageType != "jpeg" && $imageType != "gif") {
                         $message = "Maaf, hanya diperbolehkan gambar yang memiliki format JPG, JPEG, PNG, GIF";
                     } else {
-                        // Pindahkan file ke direktori tujuan
-                        if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
-                            // Lakukan operasi database setelah berhasil upload
-                            include "connect.php"; // Sisipkan ini jika belum dilakukan sebelumnya
+                        // Lakukan operasi database setelah berhasil upload
+                        include "connect.php"; // Sisipkan ini jika belum dilakukan sebelumnya
 
-                            $select = mysqli_query($conn, "SELECT * FROM tb_jadwal_dokter WHERE nama_dokter = '$nam_dokter'");
-                            if (mysqli_num_rows($select) > 0) {
-                                $message = '<script>alert("Nama dokter yang dimasukkan telah ada");
-                                            window.location="../jadwaldokter"</script>';
-                            } else {
-                                $query = mysqli_query($conn, "INSERT INTO tb_jadwal_dokter (foto,nama_dokter,spesialis,jadwal_dokter) values('" . $kode_rand . $_FILES['foto']['name'] . "','$name_dokter','$spesialis','$jadwal_dokter')");
+                        // Periksa apakah dokter sudah terdaftar di tb_user
+                        $select = mysqli_query($conn, "SELECT * FROM tb_user WHERE nama = '$nama_dokter'");
+                        
+                        if (mysqli_num_rows($select) > 0) {
+                            // Dokter terdaftar, lanjutkan untuk menambahkan jadwal
+                            // Pindahkan file ke direktori tujuan
+                            if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
+                                $query = mysqli_query($conn, "INSERT INTO tb_jadwal_dokter (foto, nama_dokter, spesialis, jadwal_dokter) VALUES ('" . $kode_rand . $_FILES['foto']['name'] . "', '$nama_dokter', '$spesialis', '$jadwal_dokter')");
                                 if ($query) {
                                     $message = '<script>alert("Data berhasil dimasukkan");
                                                 window.location="../jadwaldokter"</script>';
                                 } else {
-                                    $message = '<script>alert("Data gagal dimasukkan");
+                                    $message = '<script>alert("Data gagal dimasukkan: ' . mysqli_error($conn) . '");
                                                 window.location="../jadwaldokter"</script>';
                                 }
+                            } else {
+                                $message = '<script>alert("Maaf, terjadi kesalahan file tidak dapat diupload");
+                                            window.location="../jadwaldokter"</script>';
                             }
                         } else {
-                            $message = '<script>alert("Maaf, terjadi kesalahan file tidak dapat diupload");
+                            $message = '<script>alert("Dokter belum terdaftar di tb_user");
                                         window.location="../jadwaldokter"</script>';
                         }
                     }

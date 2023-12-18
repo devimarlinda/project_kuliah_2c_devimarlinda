@@ -29,24 +29,18 @@ while ($record = mysqli_fetch_array($query)) {
                         <div class="modal-body">
                             <form class="needs-validation" novalidate action="proses/proses_input_rekammedis.php" method="POST">
                                 <div class="row">
-                                    <div class="col-lg-6">
+
+                                    <div class="col-lg-12">
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="uploadFoto" name="id_rekammedis" value="<?php echo date('ymdHi') . rand(100, 999) ?>" readonly>
-                                            <label for="uploadFoto">Id Rekammedis</label>
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="nama" required>
+                                            <label for="floatingInput">Nama</label>
                                             <div class="invalid-feedback">
-                                                Masukkan id rekammedis
+                                                Masukkan Nama .
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" required>
-                                            <label for="pelanggan">Nama</label>
-                                            <div class="invalid-feedback">
-                                                Masukkan Nama Pasien
-                                            </div>
-                                        </div>
-                                    </div>
+
+
 
                                 </div>
                                 <div class="row">
@@ -73,7 +67,8 @@ while ($record = mysqli_fetch_array($query)) {
                     </div>
                 </div>
             </div>
-            <!-- End Modal Tambah Order Baru-->
+            <!-- End Modal Tambah keluhan Baru-->
+
 
 
 
@@ -82,16 +77,20 @@ while ($record = mysqli_fetch_array($query)) {
                 echo "Data user tidak ada";
             } else {
             ?>
+
+
+
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">ID</th>
+                                <th scope="col">ID Rekammedis</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Waktu Kunjungan</th>
                                 <th scope="col">Keluhan</th>
                                 <th scope="col">Aksi</th>
+
                             </tr>
                         </thead>
 
@@ -106,8 +105,10 @@ while ($record = mysqli_fetch_array($query)) {
                                     <td><?php echo $row['nama'] ?></td>
                                     <td><?php echo $row['waktu_berkunjung'] ?></td>
                                     <td><?php echo $row['keluhan'] ?></td>
+
                                     <td class="d-flex">
                                         <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id_rekammedis'] ?>"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#ModalKonfirmasi<?php echo $row['id_rekammedis'] ?>"><i class="bi bi-check"></i></button>
                                     </td>
                                 </tr>
 
@@ -171,6 +172,36 @@ while ($record = mysqli_fetch_array($query)) {
                                     </div>
                                 </div>
                                 <!-- End Modal Edit -->
+
+                                <!--  Modal konfirmasi -->
+                                <div class="modal fade" id="ModalKonfirmasi<?php echo $row['id_rekammedis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-md modal-fullscreen-md-down">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Konfirmasi</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="needs-validation" novalidate action="proses/proses_konfirmasi_rekammedis.php" method="POST">
+                                                    <input type="text" hidden value="<?php echo $row['id_rekammedis'] ?>" name="id_rekammedis">
+                                                    <input type="text" hidden value="<?php echo $row['nama'] ?>" name="nama">
+                                                    <input type="text" hidden value="<?php echo $row['waktu_berkunjung'] ?>" name="waktu_berkunjung">
+                                                    <input type="text" hidden value="<?php echo $row['keluhan'] ?>" name="keluhan">
+                                                    
+                                                    <div class="col-lg-12">
+                                                        Apakah anda yakin ingin mengkonfirmasi data <b><?php echo $row['nama'] ?></b>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-success" name="konfirmasi" value="12345">konfirmasi</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal konfirmasi -->
+
                             <?php
                             }
                             ?>

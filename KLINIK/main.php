@@ -42,6 +42,7 @@ $hasil = mysqli_fetch_array($query);
             <?php
             include $page;
             ?>
+           
 
             <!-- End content -->
         </div>
