@@ -50,7 +50,7 @@
                 include "proses/proses_logout.php";
 
             } elseif (isset($_GET['x']) && $_GET['x'] == 'dokter') {
-                if($_SESSION['level_klinik'] == 2 || $_SESSION['level_klinik']== 3) {
+                if($_SESSION['level_klinik'] == 2 || $_SESSION ['level_pasien_klinik']== 3) {
                     $page = "dokter.php";
                     include "main.php";
                 } else {
@@ -62,11 +62,6 @@
                 $page = "home.php";
                 include "main.php";  
             }
-           
-           
-            
-
-
             
             ?>
 

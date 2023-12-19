@@ -31,7 +31,7 @@ if (!empty($_POST['input_jadwaldokter_validate'])) {
                         $message = "Maaf, hanya diperbolehkan gambar yang memiliki format JPG, JPEG, PNG, GIF";
                     } else {
                         // Lakukan operasi database setelah berhasil upload
-                        include "connect.php"; // Sisipkan ini jika belum dilakukan sebelumnya
+                        // include "connect.php"; // Tidak perlu disisipkan karena sudah diinclude di awal
 
                         // Periksa apakah dokter sudah terdaftar di tb_user
                         $select = mysqli_query($conn, "SELECT * FROM tb_user WHERE nama = '$nama_dokter'");
@@ -39,8 +39,9 @@ if (!empty($_POST['input_jadwaldokter_validate'])) {
                         if (mysqli_num_rows($select) > 0) {
                             // Dokter terdaftar, lanjutkan untuk menambahkan jadwal
                             // Pindahkan file ke direktori tujuan
-                            if (move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
-                                $query = mysqli_query($conn, "INSERT INTO tb_jadwal_dokter (foto, nama_dokter, spesialis, jadwal_dokter) VALUES ('" . $kode_rand . $_FILES['foto']['name'] . "', '$nama_dokter', '$spesialis', '$jadwal_dokter')");
+                            if (mkdir($target_dir, 0777, true) && move_uploaded_file($_FILES['foto']['tmp_name'], $target_file)) {
+                                $newFileName = $kode_rand . $_FILES['foto']['name'];
+                                $query = mysqli_query($conn, "INSERT INTO tb_jadwal_dokter (foto, nama_dokter, spesialis, jadwal_dokter) VALUES ('$newFileName', '$nama_dokter', '$spesialis', '$jadwal_dokter')");
                                 if ($query) {
                                     $message = '<script>alert("Data berhasil dimasukkan");
                                                 window.location="../jadwaldokter"</script>';

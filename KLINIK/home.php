@@ -77,8 +77,8 @@ while ($row = mysqli_fetch_array($query)) {
     <div class="card mt-4 border-0 bg-light">
         <div class="card-body text-center">
             <h5 class="card-title">KLINIK - SISTEM PENDAFTARAN ONLINE DATA PASIEN DI KLINIK ANDISA</h5>
-            <p class="card-text">Sistem ini akan membantu anda untuk bisa mendaftar secara online dan dapat melihan jadwal dokter </p>
-           
+            <p class="card-text">Sistem ini akan membantu anda untuk bisa mendaftar secara online dan dapat melihat jadwal dokter </p>
+            <p class="card-text">Jaga Kesehatan Kamu,Ingat sehat itu mahal </p>
         </div>
     </div>
     <!-- Akhir Judul -->
