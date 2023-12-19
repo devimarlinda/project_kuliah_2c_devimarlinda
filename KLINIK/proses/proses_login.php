@@ -24,7 +24,7 @@ if (!empty($_POST['submit_validate'])) {
             ?>
             <script>
                 alert('Username atau password yang Anda masukkan salah');
-                window.location = '../login.php';
+                window.location = '../login';
             </script>
             <?php
         }

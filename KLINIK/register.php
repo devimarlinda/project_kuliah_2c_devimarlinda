@@ -39,7 +39,7 @@ if (!empty($_SESSION['username_klinik'])) {
         }
     </style>
 
-    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="assets/CSS/login.CSS" rel="stylesheet">
 </head>
 
 

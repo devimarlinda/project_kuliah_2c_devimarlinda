@@ -112,7 +112,7 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="assets/CSS/login.css" rel="stylesheet">
+    <link href="assets/CSS/login.CSS" rel="stylesheet">
 </head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">

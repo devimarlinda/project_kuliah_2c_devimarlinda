@@ -48,7 +48,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
 
             if ($stmt->rowCount() > 0) {
                 $message = '<script>alert("Username sudah terdaftar"); 
-                window.location="../register.php"</script>';
+                window.location="../register"</script>';
             } else {
                 // Insert new user
                 $stmt = $pdo->prepare("INSERT INTO tb_pasien (nik_pasien, nama_lengkap, username, alamat, tempat_lahir, tanggal_lahir, jenis_kelamin,level, no_hp, password) VALUES (:nik_pasien, :nama_lengkap, :username, :alamat, :tempat_lahir, :tanggal_lahir, :jenis_kelamin,:level, :no_hp, :password)");
@@ -64,7 +64,7 @@ if (isset($_POST['submit_register']) && $_POST['submit_register'] === 'register'
                 $stmt->bindParam(':password', $password);
                 $stmt->execute();
                 
-                $message = '<script>alert("Register berhasil"); window.location="../login.php"</script>';
+                $message = '<script>alert("Register berhasil"); window.location="../login"</script>';
             }
         }
     } catch (PDOException $e) {
