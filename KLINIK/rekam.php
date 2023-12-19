@@ -11,14 +11,14 @@ while ($record = mysqli_fetch_array($query)) {
             Halaman Rekam Medis
         </div>
         <div class="card-body">
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col d-flex justify-content-end">
                     <button style="background-color: rgb(9, 74, 53); color: white;" data-bs-toggle="modal" data-bs-target="#ModalTambahUser"> Tambah Keluhan</button>
                 </div>
-            </div> -->
+            </div>
 
 
-            <!-- Modal Tambah keluhan Baru
+            <!-- Modal Tambah keluhan Baru-->
             <div class="modal fade" id="ModalTambahUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-fullscreen-md-down">
                     <div class="modal-content">
@@ -67,7 +67,7 @@ while ($record = mysqli_fetch_array($query)) {
                     </div>
                 </div>
             </div>
-             End Modal Tambah keluhan Baru-->
+            <!-- End Modal Tambah keluhan Baru-->
 
 
 
@@ -107,12 +107,12 @@ while ($record = mysqli_fetch_array($query)) {
                                     <td><?php echo $row['keluhan'] ?></td>
 
                                     <td class="d-flex">
-                                       <!-- <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id_rekammedis'] ?>"><i class="bi bi-pencil"></i></button> -->
-                                        <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#ModalKonfirmasi<?php echo $row['id_rekammedis'] ?>"><i class="bi bi-check"></i></button>
+                                        <button class="btn btn-warning btn-sm me-1" data-bs-toggle="modal" data-bs-target="#ModalEdit<?php echo $row['id_rekammedis'] ?>"><i class="bi bi-pencil"></i></button>
+                                   
                                     </td>
                                 </tr>
 
-                                <!-- Modal Edit 
+                                <!-- Modal Edit -->
                                 <div class="modal fade" id="ModalEdit<?php echo $row['id_rekammedis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl modal-fullscreen-md-down">
                                         <div class="modal-content">
@@ -171,9 +171,9 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                     </div>
                                 </div>
-                                End Modal Edit -->
+                                <!-- End Modal Edit -->
 
-                                <!--  Modal konfirmasi -->
+                                <!--  Modal konfirmasi 
                                 <div class="modal fade" id="ModalKonfirmasi<?php echo $row['id_rekammedis'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-md modal-fullscreen-md-down">
                                         <div class="modal-content">
@@ -200,7 +200,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Modal konfirmasi -->
+                                End Modal konfirmasi -->
 
                             <?php
                             }

@@ -31,8 +31,14 @@
                 
 
             } elseif (isset($_GET['x']) && $_GET['x'] == 'rekammedis') {
-                if($_SESSION['level_klinik']==1 || $_SESSION['level_klinik']== 2){
+                if($_SESSION['level_klinik']==1){
                 $page = "rekammedis.php";
+                include "main.php";
+                }
+
+            } elseif (isset($_GET['x']) && $_GET['x'] == 'rekam') {
+                if($_SESSION['level_klinik']==2){
+                $page = "rekam.php";
                 include "main.php";
                 }
 

@@ -39,15 +39,21 @@
                             </li>
                         <?php } ?>
 
-                        <?php if (!is_null($hasil) && isset($hasil['level']) && ($hasil['level'] == 1 || $hasil['level'] == 2)) { ?>
+                        <?php if (!is_null($hasil) && isset($hasil['level']) && ($hasil['level'] == 1)) { ?>
                             <li class="nav-item">
                                 <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'rekammedis') ? 'active link-light' : 'link-dark'; ?>" href="rekammedis"><i class="bi bi-card-checklist"></i> Rekam Medis</a>
                             </li>
                         <?php } ?>
 
+                        <?php if (!is_null($hasil) && isset($hasil['level']) && ($hasil['level'] == 2 )) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'rekam') ? 'active link-light' : 'link-dark'; ?>" href="rekam"><i class="bi bi-card-checklist"></i> Rekam Medis</a>
+                            </li>
+                        <?php } ?>
+
                         <?php if (!is_null($hasil) && isset($hasil['level']) && $hasil['level'] == 1) { ?>
                             <li class="nav-item">
-                                <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>" href="report"><i class="bi bi-card-checklist"></i> Report</a>
+                                <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'report') ? 'active link-light' : 'link-dark'; ?>" href="report"><i class="bi bi-list-check"></i></i> Report</a>
                             </li>
                         <?php } ?>
 

@@ -24,14 +24,14 @@ if (!empty($_POST['input_rekammedis_validate'])) {
 
         if ($query) {
             $message = '<script>alert("Data berhasil dimasukkan");
-                        window.location="../rekammedis"</script>';
+                        window.location="../rekam"</script>';
         } else {
             $message = '<script>alert("Data gagal dimasukkan: ' . mysqli_error($conn) . '");
-                        window.location="../rekammedis"</script>';
+                        window.location="../rekam"</script>';
         }
     } else {
         $message = '<script>alert("Pasien belum terdaftar di tb_pasien");
-                    window.location="../rekammedis"</script>';
+                    window.location="../rekam"</script>';
     }
 }
 
