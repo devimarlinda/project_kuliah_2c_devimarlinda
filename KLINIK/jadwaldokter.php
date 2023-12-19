@@ -276,7 +276,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         if ($row['nama_dokter'] == $_SESSION['username_klinik']) {
                                             echo "<div class='alert alert-dangar'> Anda tidak dapat menghapus akun sendiri </div>";
                                         } else {
-                                            echo "Apakah Anda Yakin Ingin Menghapus User <b>$row[nama_dokter]</b>";
+                                            echo "Apakah Anda Yakin Ingin Menghapus Jadwal dokter <b>$row[nama_dokter]</b>";
                                         }
                                         ?>
                                     </div>

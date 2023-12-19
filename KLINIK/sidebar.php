@@ -30,8 +30,8 @@
                             <li class="nav-item">
                                 <a class="nav-link link ps-2 <?php echo (isset($_GET['x']) && $_GET['x'] == 'dokter') ? 'active link-light' : 'link-dark'; ?>" href="dokter"><i class="bi bi-calendar-date"></i> Jadwal Dokter</a>
                             </li>
-                        <?php } ?>
-
+                        
+                         <?php } ?>
 
                         <?php if (!is_null($hasil) && isset($hasil['level']) && $hasil['level'] == 1) { ?>
                             <li class="nav-item">
