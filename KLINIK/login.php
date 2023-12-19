@@ -213,6 +213,13 @@
             </p>
             <p class="mt-5 mb-3 text-body-secondary">&copy; <?php echo date("Y")  ?></p>
         </form>
+
+        <div class="text-center mt-1">
+            <p>Email : admin@dara.com</p>
+            <p>Password : password </p>
+            <p>Email : dr.andika@andika.com</p>
+            <p>Password : password </p>
+        </div>
     </main>
     
         </body>
