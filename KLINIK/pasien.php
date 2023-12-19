@@ -11,6 +11,7 @@ while ($record = mysqli_fetch_array($query)) {
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 
 
 <div class="col-lg-9 mt-2">
@@ -329,9 +330,8 @@ while ($record = mysqli_fetch_array($query)) {
             ?>
 
                 <div class="table-responsive mt-2">
-                    <table class="table table-hover" id="example">
+                    <table class="table table-hover" id= "example">
                         <thead>
-
                             <tr class="text-nowrap">
                                 <th scope="col">No</th>
                                 <th scope="col">Nik Pasien</th>
@@ -388,11 +388,5 @@ while ($record = mysqli_fetch_array($query)) {
     </div>
 </div>
 
-
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-</script>
-
 </html>
+
