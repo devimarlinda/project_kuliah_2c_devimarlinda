@@ -96,19 +96,18 @@ while ($record = mysqli_fetch_array($query)) {
                                             </div>
                                         </div>
                                     </div>
+
                                     <script>
                                         $(function() {
                                             // Inisialisasi datepicker pada elemen dengan id "tanggal_lahir"
                                             $("#tanggal_lahir").datepicker({
-                                                dateFormat: "yy-mm-dd", // Format tanggal sesuai kebutuhan
+                                                dateFormat: "yy-mm-dd",
                                                 changeMonth: true,
                                                 changeYear: true,
-                                                yearRange: "c-100:c+10" // Rentang tahun yang dapat dipilih
+                                                yearRange: "c-100:c+10"
                                             });
                                         });
                                     </script>
-
-
 
                                     <div class="col-lg-4">
                                         <div class="form-floating mb-3">
@@ -119,11 +118,10 @@ while ($record = mysqli_fetch_array($query)) {
                                             </select>
                                             <label for="jenis_kelamin">Jenis Kelamin</label>
                                             <div class="invalid-feedback">
-                                                Masukkan Jenis Kelamin.
+                                                Pilih Jenis Kelamin.
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4">
@@ -144,16 +142,10 @@ while ($record = mysqli_fetch_array($query)) {
                                                 <option selected hidden value="3">Pasien</option>
                                             </select>
                                             <label for="floatingInput">Level User</label>
-                                            <div class="invalid-feedback">
-                                                Pilih Level User.
-                                            </div>
                                         </div>
                                     </div>
-
                                 </div>
-                        </div>
-
-
+                          </div>
                         <div class="modal-footer">
                             <button type="button" style="background-color: rgb(9, 74, 53); color: white;" data-bs-dismiss="modal">Close</button>
                             <button type="submit" style="background-color: rgb(9, 74, 53); color: white;" name="input_pasien_validate" value="12345">save</button>
@@ -190,7 +182,6 @@ while ($record = mysqli_fetch_array($query)) {
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
                                                 <input disabled type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="username" value=" <?php echo $row['username'] ?>" required>
@@ -256,7 +247,6 @@ while ($record = mysqli_fetch_array($query)) {
                                                 <input disabled type="number" class="form-control" id="floatingInput" placeholder="08XXXXX" name="no_hp" value="<?php echo $row['no_hp'] ?>">
                                                 <label for="floatingInput">No HP</label>
                                             </div>
-
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-floating mb-3">
@@ -271,13 +261,10 @@ while ($record = mysqli_fetch_array($query)) {
                                             </div>
                                         </div>
                                     </div>
-
-
-
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
-                            </div>
+                                 </div>
                             </form>
                         </div>
                     </div>
@@ -330,7 +317,7 @@ while ($record = mysqli_fetch_array($query)) {
             ?>
 
                 <div class="table-responsive mt-2">
-                    <table class="table table-hover" id= "example">
+                    <table class="table table-hover" id="example">
                         <thead>
                             <tr class="text-nowrap">
                                 <th scope="col">No</th>
@@ -389,4 +376,3 @@ while ($record = mysqli_fetch_array($query)) {
 </div>
 
 </html>
-

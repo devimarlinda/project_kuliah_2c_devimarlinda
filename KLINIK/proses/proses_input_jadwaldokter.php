@@ -30,9 +30,7 @@ if (!empty($_POST['input_jadwaldokter_validate'])) {
                     if ($imageType != 'jpg' && $imageType != 'png' && $imageType != "jpeg" && $imageType != "gif") {
                         $message = "Maaf, hanya diperbolehkan gambar yang memiliki format JPG, JPEG, PNG, GIF";
                     } else {
-                        // Lakukan operasi database setelah berhasil upload
-                        // include "connect.php"; // Tidak perlu disisipkan karena sudah diinclude di awal
-
+                        
                         // Periksa apakah dokter sudah terdaftar di tb_user
                         $select = mysqli_query($conn, "SELECT * FROM tb_user WHERE nama = '$nama_dokter'");
                         
@@ -43,10 +41,10 @@ if (!empty($_POST['input_jadwaldokter_validate'])) {
                                 $newFileName = $kode_rand . $_FILES['foto']['name'];
                                 $query = mysqli_query($conn, "INSERT INTO tb_jadwal_dokter (foto, nama_dokter, spesialis, jadwal_dokter) VALUES ('$newFileName', '$nama_dokter', '$spesialis', '$jadwal_dokter')");
                                 if ($query) {
-                                    $message = '<script>alert("Data berhasil dimasukkan");
+                                    $message = '<script>alert("Jadwal dokter berhasil dimasukkan");
                                                 window.location="../jadwaldokter"</script>';
                                 } else {
-                                    $message = '<script>alert("Data gagal dimasukkan: ' . mysqli_error($conn) . '");
+                                    $message = '<script>alert("Jadwal dokter gagal dimasukkan: ' . mysqli_error($conn) . '");
                                                 window.location="../jadwaldokter"</script>';
                                 }
                             } else {
@@ -54,7 +52,7 @@ if (!empty($_POST['input_jadwaldokter_validate'])) {
                                             window.location="../jadwaldokter"</script>';
                             }
                         } else {
-                            $message = '<script>alert("Dokter belum terdaftar di tb_user");
+                            $message = '<script>alert("Dokter belum terdaftar");
                                         window.location="../jadwaldokter"</script>';
                         }
                     }

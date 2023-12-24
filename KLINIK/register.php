@@ -73,7 +73,7 @@ if (!empty($_SESSION['username_klinik'])) {
                 </div>
             </div>
 
-            <div class="form-floating position-relative mt-1">
+            <div class="form-floating position-relative mt-1" >
                 <input name="alamat" class="form-control" id="alamat" placeholder="alamat" required>
                 <label for="alamat">Alamat</label>
                 <div class="invalid-feedback">
@@ -99,10 +99,10 @@ if (!empty($_SESSION['username_klinik'])) {
                 $(function() {
                     // Inisialisasi datepicker pada elemen dengan id "tanggal_lahir"
                     $("#tanggal_lahir").datepicker({
-                        dateFormat: "yy-mm-dd", // Format tanggal sesuai kebutuhan
+                        dateFormat: "yy-mm-dd", 
                         changeMonth: true,
                         changeYear: true,
-                        yearRange: "c-100:c+10" // Rentang tahun yang dapat dipilih
+                        yearRange: "c-100:c+10" 
                     });
                 });
             </script>

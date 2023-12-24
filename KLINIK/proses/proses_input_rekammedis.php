@@ -23,14 +23,14 @@ if (!empty($_POST['input_rekammedis_validate'])) {
         $query = mysqli_stmt_execute($stmt);
 
         if ($query) {
-            $message = '<script>alert("Data berhasil dimasukkan");
+            $message = '<script>alert("Data Keluhan pasien berhasil dimasukkan");
                         window.location="../rekam"</script>';
         } else {
-            $message = '<script>alert("Data gagal dimasukkan: ' . mysqli_error($conn) . '");
+            $message = '<script>alert("Data keluahan pasien gagal dimasukkan: ' . mysqli_error($conn) . '");
                         window.location="../rekam"</script>';
         }
     } else {
-        $message = '<script>alert("Pasien belum terdaftar di tb_pasien");
+        $message = '<script>alert("Pasien belum terdaftar");
                     window.location="../rekam"</script>';
     }
 }

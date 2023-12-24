@@ -9,10 +9,10 @@ $jadwal_dokter = (isset($_POST['jadwal_dokter'])) ? htmlentities($_POST['jadwal_
 if (!empty($_POST['input_jadwaldokter_validate'])) {
     $query = mysqli_query($conn, "UPDATE tb_jadwal_dokter SET nama_dokter='$nama_dokter', spesialis='$spesialis', jadwal_dokter='$jadwal_dokter' WHERE id='$id'");
     if ($query) {
-        $message = '<script>alert("Data berhasil diupdate")
+        $message = '<script>alert("Jadwal dokter berhasil diupdate")
                     window.location="../jadwaldokter"</script>';
     } else {
-        $message = '<script>alert("Data gagal diupdate")
+        $message = '<script>alert("Jadwal dokter gagal diupdate")
                     window.location="../jadwaldokter"</script>';
     }
 }

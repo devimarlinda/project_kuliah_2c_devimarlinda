@@ -137,7 +137,7 @@ if ($recordsPasien) {
                         </div>
                         <div class="col-lg-4">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingNama" name="nama" required value="<?php echo $records['nama'] ?>">
+                                <input type="text" class="form-control" id="floatingNama" name="nama" required value="<?php echo $_SESSION['username_klinik'] ?>">
                                 <label for="floatingInput">Nama</label>
                                 <div class="invalid-feedback">
                                     Masukkan Nama anda.
@@ -146,7 +146,7 @@ if ($recordsPasien) {
                         </div>
                         <div class="col-lg-4">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="floatingInput" name="nohp" required value="<?php echo $records['nohp'] ?>">
+                                <input type="number" class="form-control" id="floatingInput" name="nohp" required value="<?php echo $_SESSION['username_klinik'] ?>">
                                 <label for="floatingInput">No Hp</label>
                                 <div class="invalid-feedback">
                                     Masukkan Nomor Hp Anda.

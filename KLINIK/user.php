@@ -71,9 +71,9 @@ while ($record = mysqli_fetch_array($query)) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                <div class="col-lg-12">
                                         <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="floatingInput" placeholder="password" disabled value="password" name="password">
+                                            <input type="password" class="form-control" id="floatingInput" placeholder="password" name="password">
                                             <label for="floatingPassword">Password</label>
                                         </div>
                                     </div>

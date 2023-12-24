@@ -54,7 +54,7 @@ while ($row = mysqli_fetch_array($query)) {
                 $firstSlide = false;
             ?>
                 <div class="carousel-item <?php echo $aktif ?>">
-                    <img src="assets/img/<?php echo $data['foto'] ?>" class="img-fluid" style="height: 250px; width: 1000px; object-fit: cover" alt="...">
+                    <img src="assets/img/<?php echo $data['foto'] ?>" class="img-fluid" style="height: 350px; width: 1000px; object-fit: cover" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5><?php echo $data['nama_dokter'] ?></h5>
                         <p><?php echo $data['spesialis'] ?></p>
@@ -83,43 +83,5 @@ while ($row = mysqli_fetch_array($query)) {
     </div>
     <!-- Akhir Judul -->
 
-    <!-- Chart -->
-    <div class="card mt-4 border-0 bg-light">
-        <div class="card-body text-center">
-            <div>
-                <canvas id="myChart"></canvas>
-            </div>
-            <script>
-                const ctx = document.getElementById('myChart');
-
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: [<?php echo $string_menu ?>],
-                        datasets: [{
-                            label: 'Jumlah Porsi Terjual',
-                            data: [<?php echo $string_jumlah_pesanan ?>],
-                            borderWidth: 1,
-                            backgroundColor:[
-                                'rgba(245, 40, 100, 0.41)',
-                                'rgba(0, 100, 234, 0.64)',
-                                'rgba(234, 255, 93, 0.61)',
-                                'rgba(0, 202, 25, 0.60)',
-                                'rgba(195, 20, 239, 0.60)',
-                                'rgba(246, 155, 52, 0.65)'
-                        ]
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            </script>
-        </div>
-    </div>
-    <!-- Akhir Chart -->
+    
 </div>

@@ -42,10 +42,10 @@ if (!empty($_POST['input_pasien_validate'])) {
     VALUES('$nik_pasien','$username','$nama_lengkap','$alamat','$tempat_lahir','$tanggal_lahir','$jenis_kelamin','$level','$no_hp','$password')");
 
     if (!$query_insert) {
-        $message = '<script>alert("Data gagal dimasukkan"); 
+        $message = '<script>alert("Data Pasien gagal dimasukkan"); 
         window.location="../pasien"</script>';
     } else {
-        $message = '<script>alert("Data berhasil dimasukkan");
+        $message = '<script>alert("Data Pasien berhasil dimasukkan");
          window.location="../pasien"</script>';
     }
 }

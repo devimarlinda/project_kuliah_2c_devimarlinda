@@ -201,13 +201,14 @@ while ($record = mysqli_fetch_array($query)) {
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="nama_dokter" required>
+                                        <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" name="nama_dokter" required value="<?php echo $row['nama_dokter'] ?>">
                                                 <label for="floatingInput">Nama dokter</label>
                                                 <div class="invalid-feedback">
-                                                    Masukkan Nama dokter.
+                                                    Masukkan Nama. dokter
                                                 </div>
                                             </div>
+                                           
                                         </div>
 
                                     </div>
@@ -215,7 +216,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" aria-label="Default s
-                                                    elect example" name="spesialis" required>
+                                                    elect example" name="spesialis" required value="<?php echo $row['spesialis'] ?>">
                                                     <option selected hidden value="0">Pilih Spesialis</option>
                                                     <option value="1">dokter umum</option>
                                                     <option value="2">dokter gigi</option>
@@ -230,7 +231,7 @@ while ($record = mysqli_fetch_array($query)) {
                                         <div class="col-lg-6">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" aria-label="Default s
-                                                    elect example" name="jadwal_dokter" required>
+                                                    elect example" name="jadwal_dokter" required value="<?php echo $row['jadwal_dokter'] ?>">
                                                     <option selected hidden value="0">Pilih Jadwal dokter</option>
                                                     <option value="1">Senin</option>
                                                     <option value="2">Selasa</option>
